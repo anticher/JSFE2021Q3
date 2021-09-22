@@ -1,0 +1,113 @@
+.slider__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider__slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider__slide > img {
+  width: 100%;
+  height: 100%;
+}
+
+.slider__slide:after {
+	display: block;    
+	width: 100%;
+	height: 100%;    
+	position: absolute;
+	top: 0;      
+	left: 0;   
+  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%);
+  content: "";
+}
+
+.slider__controls {
+  padding: 0 74px;
+  position: absolute;
+  right: 0;
+  bottom: -60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  height: 120px;
+  background-color: var(--bg-dark)
+}
+
+.slider__numbering {
+  width: 76px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider__number {
+  display: flex;
+  align-items: center;
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.slider__pagination {
+  width: 180px;
+  height: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider__button-pagination {
+  width: 16px;
+  height: 16px;
+  background-color: var(--white);
+  transition: all 0.2s ease-out;
+}
+
+.slider__button-pagination:hover {
+  background-color: var(--font-gold);
+}
+
+.slider__button-pagination.active{
+  background-color: #D2B183;
+}
+
+.slider__buttons {
+  margin-left: 5px;
+  height: 35px;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider__buttons > button{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 30px;
+  height: 8px;
+  background: none;
+}
+
+.slider__buttons > button:hover > svg {
+  filter: invert(55%) sepia(43%) saturate(258%) hue-rotate(356deg) brightness(100%) contrast(94%);
+  transition: all 0.2s ease-out;
+}
+
+/* .slider__button-prev {}
+
+.slider__button-next {} */
+
+.slider__button-next > svg {
+  transform: rotate(-180deg);
+}
