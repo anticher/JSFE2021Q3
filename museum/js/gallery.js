@@ -1,5 +1,4 @@
 const galleryInnerContainer = document.querySelector('.gallery__inner-container');
-
 const galleryImagesUrlsArray = ['galery1.jpg', 'galery2.jpg', 'galery3.jpg', 'galery4.jpg', 'galery5.jpg', 'galery6.jpg', 'galery7.jpg', 'galery8.jpg', 'galery9.jpg', 'galery10.jpg', 'galery11.jpg', 'galery12.jpg', 'galery13.jpg', 'galery14.jpg', 'galery15.jpg']
 
 shuffle(galleryImagesUrlsArray)
@@ -34,6 +33,3 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-// Чтобы добавить все изображения, создайте массив с их адресами, рандомно перемешайте его функцией shuffle(array) и используя метод .map() пройдитесь по массиву, добавляя каждое изображение в контейнер.
-
-// Объедините весь код в одну функцию и вызовите её. Теперь каждый раз при перезагрузке страницы у вас будет новое рандомное расположение картин в галерее.

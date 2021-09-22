@@ -1215,16 +1215,6 @@ header {
   color: var(--bg-dark);
 }
 
-/* .booking-form__total::before {
-  height: 2px;
-  width: 470px;
-  position: absolute;
-  top: -10px;
-  left: 0;
-  background-color: #740C11;
-  content: "";
-} */
-
 .booking-form__total-value {
   font-weight: 500;
 }
