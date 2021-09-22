@@ -7,7 +7,7 @@ shuffle(galleryImagesUrlsArray)
 galleryImagesUrlsArray.map((item, index) => {
   let img = document.createElement('img');
   img.classList.add('gallery__item')
-  img.src = `../assets/img/galery/${item}`;
+  img.src = `./assets/img/galery/${item}`;
   img.alt = `galery${index + 1}`;
   galleryInnerContainer.append(img);
 })
