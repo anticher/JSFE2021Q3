@@ -1,0 +1,130 @@
+@media (max-width: 1450px) {
+  .video-slider__slide {
+    width: 31.2vw;
+    height: 17.5vw;
+  }
+}
+
+@media (max-width: 1260px) {}
+
+@media (max-width: 1170px) {}
+
+@media (max-width: 1024px) {
+  .video__content {
+    margin-bottom: 40px;
+  }
+  .video__header {
+    width: 100%;
+    color: var(--font-gold);
+  }
+  .video__descr {
+    display: none;
+  }
+  .video__player {
+    max-width: 96.1vw;
+  }
+  .video__big-play {
+    width: 152px;
+    height: 152px;
+  }
+  .video__big-play svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .video__player {
+    margin-bottom: 20px;
+  }
+  .video__big-play {
+    width: 80px;
+    height: 80px;
+    top: calc(50% - (60px /2));
+  }
+  .video__volume-bar {
+    display: none;
+  }
+  .video__mute-adaptive-big {
+    display: none;
+  }
+  .video__mute-adaptive-768 {
+    display: flex;
+  }
+  .video__controls {
+    height: 60px;
+  }
+  .video-slider__slide:last-child {
+    display: none;
+  }
+  .video-slider__slide {
+    width: 46.09vw;
+    height: 25.9vw;
+  }
+}
+
+@media (max-width: 420px) {
+  .video__big-play {
+    width: 50px;
+    height: 50px;
+    top: calc(50% - (50px /2));
+  }
+  .video__play-pause-btn,
+  .video__play-pause-btn svg {
+    margin: 0;
+    padding: 0;
+    width: 14px;
+    height: 18px;
+  }
+
+  .video__mute,
+  .video__mute svg{
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 14px;
+  }
+
+  .video__full-screen,
+  .video__full-screen svg {
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+  }
+
+  .video__progress-bar {
+    margin: 0;
+    padding: 0;
+    height: 4px;
+  }
+
+  .video__controls {
+    height: 50px;
+  }
+
+  .video-slider__slide {
+    width: 42.8vw;
+    height: 24.04vw;
+  }
+
+  .video-slider__controls {
+    align-items: center;
+    height: 8px;
+  }
+  .video-slider__button{
+    width: 7px;
+    height: 8px;
+    display: flex;
+    align-content: flex-start;
+  }
+
+  .video-slider__button svg {
+    width: 7px;
+    height: 8px;
+  }
+  .video-slider__button-pagination {
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -20,7 +20,7 @@ function getGalleryCoordinats() {
   galleryImages.forEach((element, index, arr) => {
     let imageRect = element.getBoundingClientRect()
     if (imageRect.y === galleryRect.y) {
-      if (imageRect.right > galleryRect.right - 100 || imageRect.left === galleryRect.left) {
+      if (((imageRect.right > galleryRect.right - 100) && galleryRect.width >= 769) || imageRect.left === galleryRect.left) {
         element.classList.add('marginFifty')
       }
     }

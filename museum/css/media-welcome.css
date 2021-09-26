@@ -2,7 +2,7 @@
 
 @media (max-width: 1500px) {
   .container {
-    max-width: 96.1%;
+    max-width: 96%;
   }
   .welcome__header {
     font-size: calc(100vw / 22);
