@@ -182,7 +182,7 @@ header {
   letter-spacing: 2px;
   font-family: var(--roboto);
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   align-items: center;
   text-align: center;
   color: var(--white);
@@ -357,7 +357,7 @@ header {
 
 .explore__btn {
   position: absolute;
-  left: calc(60% - 9px);
+  left: calc(60% - 18px);
   width: 39px;
   height: 700px;
   background: none;
