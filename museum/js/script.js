@@ -41,3 +41,15 @@ ticketsAmountSeniorLeftButton.addEventListener('click', function() {
 ticketsAmountSeniorRightButton.addEventListener('click', function() {
     ticketsAmountSeniorRightButton.previousElementSibling.stepUp()
 })
+
+
+console.log(`Score: 150 / 150
+    Вёрстка валидная +10
+    Вёрстка семантическая +24
+    Вёрстка соответствует макету +45
+    Форма покупки билетов +22
+    Требования к css + 18
+    Интерактивность, реализуемая через css +25
+    Интерактивность, реализуемая через js +16
+    
+    Спасибо за проверку и успехов!`)
