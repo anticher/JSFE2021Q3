@@ -14,7 +14,6 @@ html {
 .section__header {
   position: relative;
   font-family: var(--forum);
-  ;
   font-style: normal;
   font-weight: 400;
   font-size: 80px;
@@ -67,7 +66,7 @@ header {
   display: flex;
   font-family: var(--forum);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 28px;
   line-height: 50px;
   letter-spacing: 5px;
@@ -125,13 +124,13 @@ header {
 /* welcome styles */
 
 .welcome {
-  min-height: 810px;
   background: var(--bg-dark);
 }
 
 .welcome>.container {
-  min-height: 810px;
+  padding-bottom: 60px;
 }
+
 
 .welcome__wrapper {
   position: relative;
@@ -139,7 +138,7 @@ header {
   justify-content: flex-end;
 }
 
-.welcom__post {
+.welcome__post {
   width: 598px;
   position: absolute;
   left: 0;
@@ -182,7 +181,7 @@ header {
   letter-spacing: 2px;
   font-family: var(--roboto);
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   align-items: center;
   text-align: center;
   color: var(--white);
@@ -195,12 +194,12 @@ header {
   background-color: var(--font-gold);
 }
 
-.welcom__slider {
+.welcome__slider {
   width: 1000px;
   height: 750px;
 }
 
-.welcom__slider>img {
+.welcome__slider>img {
   width: 100%;
   height: 100%;
 }
@@ -288,12 +287,15 @@ header {
 
 .explore {
   padding: 75px 0;
-  min-height: 865px;
+  height: 865px;
   background-color: var(--bg-dark);
 }
 
 .explore__wrapper {
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .explore__content {
@@ -302,7 +304,7 @@ header {
 
 .explore__header {
   margin-bottom: 103px;
-  max-width: 660px;
+  width: 660px;
 }
 
 .explore__descr {
@@ -337,27 +339,41 @@ header {
 }
 
 .explore__image {
+  width: 100%;
   height: 100%;
-  position: absolute;
+  overflow: hidden;
 }
 
 .explore__image_light {
+  position: relative;
   width: 60%;
-  left: 0;
-  top: 0;
-  background: url(../assets/img/ExploreSliderLight.jpg) left;
+  z-index: 2;
+}
+.explore__image_light > img {
+  display: block;
+  width: 720px;
+  height: 700px;
 }
 
 .explore__image_dark {
-  width: 40%;
-  right: 0;
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  width: 100%;
   top: 0;
-  background: url(../assets/img/ExploreSliderDark.jpg) right;
+  right: 0;
+}
+
+.explore__image_dark > img {
+  display: block;
+  width: 720px;
+  height: 700px;
 }
 
 .explore__btn {
   position: absolute;
-  left: calc(60% - 9px);
+  top: 0;
+  left: calc(60% - 18px);
   width: 39px;
   height: 700px;
   background: none;
@@ -438,6 +454,7 @@ header {
 }
 
 .gallery__inner-container {
+  margin: 0 auto;
   width: 100%;
   height: calc((570px * 5) + (24px * 4));
   display: flex;
@@ -445,10 +462,11 @@ header {
   flex-wrap: wrap;
   gap: 24px 36px;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .gallery__item {
-  width: 456px;
+  max-width: 456px;
   max-height: 570px;
   transition: all 1s ease-in;
 }

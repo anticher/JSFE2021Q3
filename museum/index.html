@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="css/slider.css">
   <link rel="stylesheet" href="css/video-slider.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media-welcome.css">
+  <link rel="stylesheet" href="css/media-visiting.css">
+  <link rel="stylesheet" href="css/media-explore.css">
   <title>Museum</title>
 </head>
 
@@ -44,13 +47,13 @@
     <section class="welcome">
       <div class="container">
         <div class="welcome__wrapper">
-          <div class="welcom__post">
+          <div class="welcome__post">
             <h1 class="welcome__header">Welcome<br>to the Louvre</h1>
             <p class="welcome__subheader">From the castle to the museum</p>
             <a class="welcome__btn" href="tours/tour1.html" target="_blank">
               Discover the Louvre</a>
           </div>
-          <div class="welcom__slider">
+          <div class="welcome__slider">
             <div class="slider__wrapper">
               <div class="slider__slide"><img src="assets/img/welcomeFirstSlide.jpg" alt='welcome_slide_1'></div>
               <div class="slider__slide">Slide 2</div>
@@ -163,8 +166,8 @@
     <section class="explore" id="explore">
       <div class="container">
         <div class="explore__wrapper">
+          <h2 class="explore__header section__header section__divider">Picture explore</h2>
           <div class="explore__content">
-            <h2 class="explore__header section__header section__divider">Picture explore</h2>
             <div class="explore__descr">
               <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish
                 Golden Age.</p>
@@ -176,7 +179,8 @@
           </div>
           <div class="explore__slider">
             <div class="explore__image explore__image_light">
-            </div>
+              <img src="assets/img/ExploreSliderLight.jpg" alt="ExploreLight">
+              </div>
             <button class="explore__btn">
               <svg width="39" height="700" viewBox="0 0 39 700" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -187,6 +191,7 @@
               </svg>
             </button>
             <div class="explore__image explore__image_dark">
+              <img src="assets/img/ExploreSliderDark.jpg" alt="ExploreDark">
             </div>
           </div>
         </div>
@@ -321,7 +326,7 @@
       <div class="container">
         <div class="gallery__wrapper">
           <h2 class="gallery__header section__header">Art gallery</h2>
-          <div class="gallery__inner-container container">
+          <div class="gallery__inner-container">
 
           </div>
         </div>
@@ -689,6 +694,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <!-- <script src="js/explore.js"></script> -->
   <script src="js/player.js"></script>
   <script src="js/booking.js"></script>
   <script src="js/gallery.js"></script>
