@@ -41,6 +41,7 @@ iframe {
 /* header styles */
 
 header {
+  position: relative;
   height: 150px;
   background-color: var(--bg-dark);
 }
@@ -121,6 +122,78 @@ header {
   color: #7E6C51;
 }
 
+/* burger styles */
+
+.header__burger {
+  position: absolute;
+  left: -1000px;
+  bottom: -600px;
+  background: var(--bg-dark);
+  z-index: 50;
+}
+
+.header__burger-active {
+  left: 0;
+}
+
+.navbar__items-adaptive {
+  display: none;
+}
+
+.burger__btn {
+  display: none;
+  position: relative;
+  width: 32px;
+  height: 18px;
+  background: none;
+}
+
+.burger__btn-line {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 32px;
+  background: var(--white);
+  display: block;
+  transition: all 0.5s ease-in;
+}
+
+.burger__btn-line:nth-child(1) {
+  top: 0;
+}
+
+.burger__btn-line:nth-child(2) {
+  top: 50%;
+}
+
+.burger__btn-line:nth-child(3) {
+  top: 100%;
+}
+
+.burger__btn-close > .burger__btn-line:nth-child(1) {
+  left: 10px;
+  transform: rotate(45deg) translate(-2px, 14px) ;
+}
+
+.burger__btn-close > .burger__btn-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger__btn-close > .burger__btn-line:nth-child(3) {
+  left: 10px;
+  transform: rotate(-45deg) translate(-1px, -15px) ;
+}
+
+.burger__images {
+  display: none;
+}
+
+.burger__footer {
+  display: none;
+}
+
+
+
 /* welcome styles */
 
 .welcome {
@@ -143,7 +216,12 @@ header {
   position: absolute;
   left: 0;
   top: 150px;
+  display: block;
   z-index: 10;
+}
+
+.welcome__post-display {
+  display: none;
 }
 
 .welcome__header {
