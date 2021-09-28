@@ -29,14 +29,19 @@
 }
 
 @media (max-width: 1024px) {
+  .welcome>.container {
+    padding-bottom: 0;
+  }
   .section__header {
     font-size: 50px;
     line-height: 75px;
+    margin-bottom: 83px;
   }
   .welcome__header {
     font-size: 50px;
   }
   .welcome__subheader {
+    margin-bottom: 50px;
     font-size: 24px;
     line-height: 28px;
   }
@@ -55,11 +60,18 @@
     height: auto;
   }
   .slider__controls {
+    bottom: 0;
     width: 700px;
-    padding-left: 224px;
+    padding: 0 52px 0 206px;
   }
-  .slider__button-pagination {
+  .slider__numbering {
+    width: 70px;
+  }
+  .slider__number {
     font-size: 20px;
+  }
+  .slider__pagination {
+    width: 160px;
   }
   .slider__button-pagination {
     width: 12px;

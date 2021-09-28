@@ -24,6 +24,8 @@
 @media (max-width: 1023px) {
   .booking-form {
     width: 768px;
+    max-height: 100vh;
+    overflow: scroll;
   }
   .booking-form__container {
     max-width: 96%;
@@ -49,6 +51,12 @@
   .entry-ticket__header::after {
     width: 100%;
   }
+  .booking-form__overview {
+    margin-bottom: 0;
+  }
+  .booking-form__card {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 800px) {
@@ -64,8 +72,14 @@
   
 }
 
-@media (max-width: 740px) {
-  
+@media (max-width: 620px) {
+  .booking-form__input-start {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .booking-form__date-wrapper, .booking-form__time-wrapper {
+    width: 100%;
+  }
 }
 
 

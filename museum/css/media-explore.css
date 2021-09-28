@@ -38,10 +38,19 @@
   }
   .explore__content {
     width: 100%;
-    margin-bottom: 52px;
+    margin-bottom: 42px;
+  }
+  .explore__descr>p {
+    margin-bottom: 0;
   }
   .explore__descr>p:last-child {
     display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .explore {
+    padding: 60px 0;
   }
 }
 

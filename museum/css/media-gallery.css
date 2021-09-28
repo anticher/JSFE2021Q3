@@ -16,6 +16,9 @@
 }
 
 @media (max-width: 1024px) {
+  .gallery {
+    padding-top: 60px;
+  }
   .gallery__wrapper {
     height: 142.6vw;
   }

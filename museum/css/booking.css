@@ -73,7 +73,7 @@
     gap: 20px;
 }
 
-.booking-form__form>div {
+.booking-form__input-start {
     display: flex;
     justify-content: space-between;
 }

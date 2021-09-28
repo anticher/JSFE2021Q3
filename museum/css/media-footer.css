@@ -1,6 +1,6 @@
 @media (max-width: 1150px) {
   .footer__links {
-    width: auto;
+    max-width: 313px;
     margin-left: 40px;
   }
   .links__column:first-child {
@@ -9,7 +9,9 @@
 }
 
 @media (max-width: 1024px) {
-
+  footer {
+    padding-top: 60px
+  }
 }
 
 @media (max-width: 960px) {

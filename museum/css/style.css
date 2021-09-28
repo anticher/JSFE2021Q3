@@ -795,6 +795,7 @@ header {
   background-image: url(../assets/img/parallaxBackground.jpg);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
 }
 
 .parallax__header {

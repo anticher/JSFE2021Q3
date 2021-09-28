@@ -64,6 +64,12 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .visiting {
+    padding-top: 60px;
+  }
+}
+
 @media (max-width: 1000px) {
   .visiting__content {
     padding: 0 80px;
