@@ -69,7 +69,29 @@
 }
 
 @media (max-width: 768px) {
-  
+  .booking-form__subheader {
+    margin-bottom: 55px;
+  }
+  .booking-form__entry-ticket {
+    padding: 7px 15px 15px 15px;
+  }
+  .booking-form__form {
+    margin-bottom: 50px;
+  }
+  .booking-form__right {
+    padding: 25px 15px;
+  }
+  .booking-form__overview {
+    width: 100%;
+  }
+  .booking-form__totallist {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .booking-form__card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 
 @media (max-width: 620px) {

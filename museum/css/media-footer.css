@@ -24,20 +24,37 @@
     margin-left: 0;
   }
   .footer__left {
-    margin-right: 13.66vw;
+    margin-right: 12vw;
   }
   .footer__social {
-    margin-right: 13.66vw;
+    margin-right: 12.9vw;
   }
 }
 
-@media (max-width: 800px) {
-  
-}
+@media (max-width: 800px) {}
 
 @media (max-width: 768px) {
+  footer {
+    padding-top: 35px;
+  }
+  .footer__top {
+    height: 270px;
+  }
+  .footer__bottom {
+    height: 100px;
+  }
+  .footer__links {
+    max-width: none;
+  }
   .footer__link {
     font-size: 18px;
+  }
+  .footer__link-bottom {
+    font-size: 22px;
+  }
+  .footer__social {
+    margin-right: 12.9vw;
+    margin-bottom: -6px;
   }
 }
 
@@ -75,34 +92,58 @@
   }
 }
 
+@media (max-width: 730px) {}
 
-@media (max-width: 730px) {
-  
-}
-
-@media (max-width: 710px) {
-  
-}
+@media (max-width: 710px) {}
 
 @media (max-width: 500px) {
-  .footer__bottom > a:first-of-type {
+  .footer__bottom>a:first-of-type {
     display: none;
   }
 }
 
 @media (max-width: 420px) {
- .footer__link {
-  font-size: 16px;
- }
- .footer__logo {
-  font-size: 16px;
-  line-height: 18px;
- }
-}
-
-@media (max-width: 400px) {
+  footer {
+    padding-top: 30px;
+  }
+  .footer__top {
+    padding-top: 12px;
+    padding-bottom: 45px;
+  }
+  .footer__links {
+    margin-top: 25px;
+    width: 100%;
+  }
+  .footer__link {
+    font-size: 16px;
+  }
+  .footer__logo {
+    font-size: 16px;
+    line-height: 18px;
+    width: 131px;
+    height: 20px;
+  }
   .links__column-adaptive {
-    width: 96vw;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .links__column-adaptive li:nth-child(1),
+  .links__column-adaptive li:nth-child(4) {
+    justify-self: left;
+  }
+  .links__column-adaptive li:nth-child(3),
+  .links__column-adaptive li:nth-child(6) {
+    justify-self: right;
+  }
+  .footer__social {
+    max-width: 260px;
+  }
+  .footer__bottom>a {
+    display: none;
   }
 }
+  @media (max-width: 400px) {
+    .links__column-adaptive {
+      width: 96vw;
+      grid-template-columns: auto auto auto;
+    }
+  }

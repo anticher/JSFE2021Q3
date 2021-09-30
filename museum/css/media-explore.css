@@ -55,6 +55,9 @@
 }
 
 @media (max-width: 768px) {
+  .explore {
+    padding: 35px 0;
+  }
   .explore__header {
     margin-bottom: 0;
   }
@@ -82,5 +85,14 @@
   }
   .explore__btn svg {
     height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .explore {
+    padding: 40px 0;
+  }
+  .explore__header {
+    margin-bottom: 5px;
   }
 }

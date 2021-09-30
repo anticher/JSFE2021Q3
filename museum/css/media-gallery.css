@@ -33,8 +33,11 @@
 @media (max-width: 1170px) {}
 
 @media (max-width: 768px) {
+  .gallery {
+    padding-top: 40px;
+  }
   .gallery__header {
-    margin-bottom: 10px;
+    margin-bottom: 35px;
   }
   .gallery__wrapper {
     height: 158.9vw;
@@ -61,6 +64,9 @@
 }
 
 @media (max-width: 420px) {
+  .gallery__header {
+    margin-bottom: 40px;
+  }
   .gallery__wrapper {
     height: 757px;
   }
