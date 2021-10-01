@@ -1,0 +1,180 @@
+@media (max-width: 1550px) {
+  .booking-form {
+    padding: 91px 0;
+    width: 100vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 1220px) {
+  .booking-form {
+    padding: 75px 30px 30px 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  
+}
+
+
+@media (max-width: 1024px) {
+  
+}
+
+@media (max-width: 1023px) {
+  .booking-form {
+    width: 768px;
+    max-height: 100vh;
+    overflow: scroll;
+  }
+  .booking-form__container {
+    max-width: 96%;
+  }
+  .booking-form__wrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .booking-form__left {
+    width: 530px;
+  }
+  .booking-form__subheader::after {
+    width: 100%;
+  }
+  .booking-form__input-wrapper {
+    width: 100%;
+  }
+  .booking-form__date-wrapper,
+  .booking-form__time-wrapper {
+    width: 251px;
+  }
+  .entry-ticket__header::after {
+    width: 100%;
+  }
+  .booking-form__overview {
+    margin-bottom: 0;
+  }
+  .booking-form__card {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .booking-form {
+    width: 590px;
+  }
+  .booking-form__container {
+    max-width: 530px;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-form__subheader {
+    margin-bottom: 55px;
+  }
+  .booking-form__entry-ticket {
+    padding: 7px 15px 15px 15px;
+  }
+  .booking-form__form {
+    margin-bottom: 50px;
+  }
+  .booking-form__right {
+    padding: 25px 15px;
+  }
+  .booking-form__overview {
+    width: 100%;
+  }
+  .booking-form__totallist {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .booking-form__card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 620px) {
+  .booking-form__input-start {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .booking-form__date-wrapper, .booking-form__time-wrapper {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 730px) {
+  
+}
+
+@media (max-width: 710px) {
+  
+}
+
+@media (max-width: 610px) {
+  .booking-form {
+    width: 100%;
+  }
+  .booking-form__container {
+    max-width: 100%;
+  }
+  .booking-form__left {
+    width: 100%;
+  }
+  .booking-form__right {
+    width: 100%;
+  }
+  .booking-form__overview {
+    background-size: 35%;
+  }
+}
+
+@media (max-width: 520px) {
+  .booking-form__header {
+    font-size: 32px;
+    line-height: 35px;
+  }
+  .booking-form__card {
+    height: 466px;
+  }
+  .booking-form__card-front {
+    width: 330px;
+    height: 209px;
+  }
+  .booking-form__card-back {
+    left: 0;
+    top: 232px;
+    width: 330px;
+    height: 209px;
+  }
+  .booking-form__card-back::before {
+    width: 100%;
+  }
+.booking-form__card-input-wrapper {
+    margin-bottom: 12px;
+}
+  .booking-form__card-label {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
+@media (max-width: 419px) {
+  .entry-ticket__label {
+    font-size: 14px;
+  }
+  .booking-form__card-front,
+  .booking-form__card-back {
+    width: 100%;
+    height: auto;
+  }
+  .card-input__expiration-date {
+    width: 100%;
+  }
+  .booking-form__visa,
+  .booking-form__master-card {
+    display: none;
+  }
+}

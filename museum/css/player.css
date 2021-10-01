@@ -1,3 +1,9 @@
+.video__player > video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
 .video__big-play {
     position: absolute;
     left: 50%;
@@ -12,11 +18,7 @@
     filter: invert(67%) sepia(0%) saturate(1606%) hue-rotate(203deg) brightness(91%) contrast(86%);
 }
 
-.video__player > video {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-}
+
 
 .video__controls {
     position: absolute;
@@ -85,6 +87,14 @@
     display: flex;
     background: none;
     cursor: pointer;
+}
+
+.video__mute-adaptive-big {
+    display: flex;
+}
+
+.video__mute-adaptive-768 {
+    display: none;
 }
 
 .video__mute:hover {
