@@ -2,6 +2,7 @@ const progress = document.querySelector('#progressBar');
 const volume = document.querySelector('#volumeBar');
 const playPauseBtn = document.querySelector('#playPauseBtn')
 const mute = document.querySelector('#mute')
+const muteAdaptive = document.querySelector('#muteAdaptive')
 const fullScreen = document.querySelector('#fullScreen')
 const player = document.querySelector('#player')
 
@@ -34,6 +35,17 @@ mute.addEventListener('click', function() {
         mute.value = player.volume
         player.volume = 0
     }
+})
+
+muteAdaptive.addEventListener('click', function() {
+  if (this.classList.contains('muted')) {
+      this.classList.remove('muted')
+      player.volume = mute.value
+  } else {
+      this.classList.add('muted')
+      mute.value = player.volume
+      player.volume = 0
+  }
 })
 
 

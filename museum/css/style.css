@@ -143,6 +143,7 @@ header {
   left: -1000px;
   bottom: -600px;
   background: var(--bg-dark);
+  transition: all 0.5s ease-in;
   z-index: 50;
 }
 
