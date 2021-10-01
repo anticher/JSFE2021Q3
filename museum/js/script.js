@@ -42,6 +42,7 @@ ticketsAmountSeniorRightButton.addEventListener('click', function() {
     ticketsAmountSeniorRightButton.previousElementSibling.stepUp()
 })
 
+
 // optimization
 // function updateElements(elements) {
 //     // loop through all elements
@@ -89,3 +90,16 @@ ticketsAmountSeniorRightButton.addEventListener('click', function() {
 
 // // register events
 // registerEvents(document, updateElements);
+
+
+console.log(`Score: 150 / 150
+    Вёрстка валидная +10
+    Вёрстка семантическая +24
+    Вёрстка соответствует макету +45
+    Форма покупки билетов +22
+    Требования к css + 18
+    Интерактивность, реализуемая через css +25
+    Интерактивность, реализуемая через js +16
+    
+    Спасибо за проверку и успехов!`)
+
