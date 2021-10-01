@@ -74,10 +74,25 @@
     font-size: 18px;
     line-height: 21px;
   }
+  .contacts__map {
+    max-width: 100%;
+  }
 }
 
-@media (max-width: 740px) {
-  
+@media (max-width: 900px) {
+  .contacts__descr {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .contacts__descr>p {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .contacts__row,
+  .contacts__row>a {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 
@@ -96,19 +111,6 @@
 @media (max-width: 420px) {
   .contacts {
     padding: 40px 0 43px;
-  }
-  .contacts__descr {
-    font-size: 16px;
-    line-height: 19px;
-  }
-  .contacts__descr>p {
-    font-size: 16px;
-    line-height: 19px;
-  }
-  .contacts__row,
-  .contacts__row>a {
-    font-size: 16px;
-    line-height: 19px;
   }
   .contacts__map {
     max-width: none;

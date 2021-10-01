@@ -70,6 +70,10 @@
   .gallery__wrapper {
     height: 757px;
   }
+  .gallery__inner-container {
+    align-content: space-between;
+    height: calc(2 * ((40vw * 5) + (24px * 4)));
+  }
   .gallery__item {
     max-width: 42.38vw;
   }

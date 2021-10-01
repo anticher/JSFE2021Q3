@@ -139,7 +139,9 @@
   }
 }
 
-@media (max-width: 420px) {
+
+
+@media (max-width: 700px) {
   .section__header {
     font-size: 28px;
     line-height: 40px;
@@ -182,12 +184,17 @@
     width: 20px;
   }
   .welcome__slider {
-    height: 365px;
+    height: auto;
   }
-
   .slider__controls {
     height: 80px;
     bottom: 0px;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 420px) {
+  .welcome__slider {
+    height: 365px;
   }
 }
