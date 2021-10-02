@@ -42,7 +42,9 @@ ticketsAmountSeniorRightButton.addEventListener('click', function() {
     ticketsAmountSeniorRightButton.previousElementSibling.stepUp()
 })
 
+
 // optimization
+
 // function updateElements(elements) {
 //     // loop through all elements
 //     for (let i = 0; i < elements.length; i++) {
@@ -109,3 +111,4 @@ console.log(`
 Спасибо за проверку и хорошего дня =)
 
 `)
+
