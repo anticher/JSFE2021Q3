@@ -51,6 +51,9 @@
   
 }
 
+
+
+
 @media (max-width: 768px) {
   .contacts {
     padding: 35px 0 60px;
@@ -79,7 +82,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .contacts__descr {
     font-size: 16px;
     line-height: 19px;
@@ -94,7 +97,6 @@
     line-height: 19px;
   }
 }
-
 
 @media (max-width: 730px) {
   
