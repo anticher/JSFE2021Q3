@@ -108,6 +108,9 @@
   .tickets {
     padding: 40px 0;
   }
+  .tickets__row {
+    padding-left: 0;
+  }
   .tickets__header {
     margin-bottom: 10px;
   }

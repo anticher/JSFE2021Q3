@@ -194,7 +194,19 @@
 }
 
 @media (max-width: 420px) {
+  .welcome {
+    padding-top: 10px;
+  }
   .welcome__slider {
     height: 365px;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome__slider {
+    height: auto;
+  }
+  .slider__pagination {
+    display: none;
   }
 }
