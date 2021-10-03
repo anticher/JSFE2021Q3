@@ -121,6 +121,9 @@
     position: relative;
     height: 60px;
   }
+  .video__controls-absolute {
+    position: absolute;
+  }
   .video-slider__slide:last-child {
     display: none;
   }
