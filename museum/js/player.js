@@ -5,7 +5,7 @@ const playPauseBtn = document.querySelector('#playPauseBtn')
 const mute = document.querySelector('#mute')
 const muteAdaptive = document.querySelector('#muteAdaptive')
 const fullScreenBtn = document.querySelector('#fullScreen')
-const player = document.querySelector('#player')
+const player = document.querySelector('.player-active')
 const playerContainer = document.querySelector('.video__player')
 const playerControls = document.querySelector('.video__controls')
 
@@ -25,7 +25,7 @@ document.addEventListener('keydown', function(event) {
 
 
 //progress
-progress.value = 54
+progress.value = 0
 progress.style.background = `linear-gradient(to right, #710707 0%, #710707 ${progress.value}%, #C4C4C4 ${progress.value}%, #C4C4C4 100%)`
 
 player.ontimeupdate = () => {
@@ -34,8 +34,12 @@ player.ontimeupdate = () => {
     playPauseBtn.classList.remove('playing');
     bigPlayBtn.classList.add('video__big-play-active')
   }
-  progress.value = 100 / player.duration * player.currentTime
-  progress.style.background = `linear-gradient(to right, #710707, #710707 ${progress.value}%, #C4C4C4 ${progress.value}%, #C4C4C4 100%)`
+  if (player.currentTime === 0) {
+    progress.style.background = `linear-gradient(to right, #C4C4C4 0%, #C4C4C4 100%)`
+  } else {
+    progress.value = 100 / player.duration * player.currentTime
+    progress.style.background = `linear-gradient(to right, #710707 0%, #710707 ${progress.value}%, #C4C4C4 ${progress.value}%, #C4C4C4 100%)`
+  }
 }
 
 progress.addEventListener('input', function () {
@@ -141,3 +145,47 @@ function toggleFullscreen() {
     }
   }
 }
+
+
+//video slider
+
+const swiperVideo = new Swiper('.video-slider__wrapper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 42,
+
+  // If we need pagination
+  pagination: {
+    el: '.video-slider__pagination',
+    clickable: true,
+    bulletClass: 'video-slider__button-pagination',
+    bulletActiveClass: 'video-slider__button-pagination-active',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.video-slider__button-next',
+    prevEl: '.video-slider__button-prev',
+  },
+
+  // // And if we need scrollbar
+  // scrollbar: {
+  //   el: '.swiper-scrollbar',
+  // },
+});
+
+swiperVideo.on('slideChangeTransitionStart', function () {
+  console.log(swiperVideo.realIndex)
+  player.src = `./assets/video/video${swiperVideo.realIndex}.webm`
+  player.poster = `./assets/video/poster${swiperVideo.realIndex}.jpeg`
+  playPauseBtn.classList.remove('playing')
+  bigPlayBtn.classList.add('video__big-play-active')
+  player.currentTime = 0
+  progress.value = 0
+  player.ontimeupdate()
+  // players.forEach(el => el.classList.remove('player-active'))
+  // players[result].classList.add('player-active')
+  // player.load()
+})

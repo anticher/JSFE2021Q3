@@ -164,7 +164,8 @@
     font-size: 16px;
     line-height: 40px;
   }
-  .slider__pagination {
+  .slider__pagination,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
     width: 75px;
   }
   .slider__buttons {

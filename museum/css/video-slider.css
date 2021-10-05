@@ -1,11 +1,12 @@
 .video-slider__wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .video-slider__slides {
-    width: 100%;
+
     margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
@@ -13,8 +14,12 @@
 }
 
 .video-slider__slide {
-    width: 452px;
-    height: 254px;
+    max-width: 31.38vw;
+    height: 17.6vh;
+}
+
+.video-slider__slide.swiper-slide-active > iframe {
+    opacity: 0.5;
 }
 
 .video-slider__controls {
@@ -59,7 +64,7 @@
     background-color: #999999;
 }
 
-.video-slider__button-pagination.active {
+.video-slider__button-pagination-active {
     background-color: #333333;
 }
 

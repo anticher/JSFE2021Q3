@@ -109,3 +109,48 @@ console.log(`
 Спасибо за проверку и хорошего дня =)
 
 `)
+
+//welcome
+const sliderNumber = document.querySelector('#welcomeSliderCurrentNumber')
+// init Swiper:
+
+const swiper = new Swiper('.welcome__slider', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    speed: 700,
+  
+    // If we need pagination
+    pagination: {
+      el: '.slider__pagination',
+      clickable: true,
+    //   bulletElement: 'div',
+      bulletClass: 'slider__button-pagination',
+      bulletActiveClass: 'slider__button-pagination-active',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.slider__button-next',
+      prevEl: '.slider__button-prev',
+    },
+  
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+  })
+  swiper.on('slideChangeTransitionStart', function () {
+    let result
+    if (swiper.activeIndex > 5) {
+        result = 1
+    } else if (swiper.activeIndex === 0) {
+        result = 5
+    } else {
+        result = swiper.activeIndex
+    }
+    sliderNumber.innerHTML = '0' + result
+  })
+
+
+

@@ -4,6 +4,10 @@
     object-fit: fill;
 }
 
+.player {
+    display: block;
+}
+
 .video__big-play {
     position: absolute;
     left: 50%;
@@ -157,7 +161,6 @@
 
 .video__progress-bar {
     width: 64.5%;
-    background: linear-gradient(to right, #710707 0%, #710707 54%, #C4C4C4 54%, #C4C4C4 100%);
 }
 
 .video__progress-bar,
