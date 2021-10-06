@@ -554,9 +554,16 @@ header {
 }
 
 .gallery__item {
+  opacity: 0;
   max-width: 456px;
   max-height: 570px;
-  transition: all 1s ease-in;
+  transform: scale(0.95) translate(0px, 40px);
+  transition: all 2s ease-in;
+}
+
+.gallery__item.active {
+  opacity: 1;
+  transform: scale(1) translate(0px, 0px);  
 }
 
 .gallery__item.marginFifty {
