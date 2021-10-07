@@ -1,38 +1,62 @@
-function imageComparison(selector) {
 
-    let comparison = $(selector)
-        .addClass('image-comparison')
-        .prepend('<div class="image-comparison__before"></div>')
-        .append('<button class="image-comparison__slider"></button>');
+// I hope this over-commenting helps. Let's do this!
+// Let's use the 'active' variable to let us know when we're using it
+let active = false;
 
-    let images = comparison
-        .find('img')
-        .addClass('image-comparison__image')
-        .css('max-width', comparison.width());
+// First we'll have to set up our event listeners
+// We want to watch for clicks on our scroller
+document.querySelector('.explore__slider-scroller').addEventListener('mousedown',function(){
+  active = true;
+  // Add our scrolling class so the scroller has full opacity while active
+  document.querySelector('.explore__slider-scroller').classList.add('scrolling');
+});
+// We also want to watch the body for changes to the state,
+// like moving around and releasing the click
+// so let's set up our event listeners
+document.body.addEventListener('mouseup',function(){
+  active = false;
+  document.querySelector('.explore__slider-scroller').classList.remove('scrolling');
+});
+document.body.addEventListener('mouseleave',function(){
+  active = false;
+  document.querySelector('.explore__slider-scroller').classList.remove('scrolling');
+});
 
-    let before = comparison
-        .find('.image-comparison__before')
-        .append(images.eq(0));
+// Let's figure out where their mouse is at
+document.body.addEventListener('mousemove',function(e){
+  if (!active) return;
+  // Their mouse is here...
+  let x = e.pageX;
+  // but we want it relative to our wrapper
+  x -= document.querySelector('.explore__slider-wrapper').getBoundingClientRect().left;
+  // Okay let's change our state
+  scrollIt(x);
+});
 
-    comparison
-        .find('.image-comparison__slider')
-        .on('dragstart', () => false) // отмена станд. drug&drop 
-        .on('mousedown', function(e) {
-            let slider = $(this);
-            let doc = $(document).on('mousemove', (e) => {
-                let offset = e.pageX - comparison.position().left;
-                let width = comparison.width();
+// Let's use this function
+function scrollIt(x){
+    let transform = Math.max(0,(Math.min(x,document.querySelector('.explore__slider-wrapper').offsetWidth)));
+    document.querySelector('.explore__slider-after').style.width = transform+"px";
+    document.querySelector('.explore__slider-scroller').style.left = transform-25+"px";
+}
 
-                // установим границы, чтобы ползунок не выходил 
-                if (offset < 0) offset = 0;
-                if (offset > width) offset = width;
+// Let's set our opening state based off the width, 
+// we want to show a bit of both images so the user can see what's going on
+scrollIt(150);
 
-                slider.css('left', offset + 'px');
-                before.css('width', offset + 'px');
-            });
+// And finally let's repeat the process for touch events
+// first our middle scroller...
+document.querySelector('.explore__slider-scroller').addEventListener('touchstart',function(){
+  active = true;
+  document.querySelector('.explore__slider-scroller').classList.add('scrolling');
+});
+document.body.addEventListener('touchend',function(){
+  active = false;
+  document.querySelector('.explore__slider-scroller').classList.remove('scrolling');
+});
+document.body.addEventListener('touchcancel',function(){
+  active = false;
+  document.querySelector('.explore__slider-scroller').classList.remove('scrolling');
+});
 
-            doc.on('mouseup', () => doc.off('mousemove'));
-        });
-};
-
-imageComparison('#image-comparison');
+document.body.addEventListener('touchmove',function(e){ if (!active) return; let x = e.touches[0].pageX; x -= document.querySelector('.explore__slider-wrapper').getBoundingClientRect().left; scrollIt(x); });

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="image/x-icon" rel="shortcut icon" href="./assets/favicon/favicon.ico">
   <link rel="stylesheet" href="css/reboot.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/vars.css">
   <link rel="stylesheet" href="css/fonts.css">
@@ -306,9 +307,21 @@
             </div>
           </div>
           <div class="explore__slider">
-            <div id="image-comparison">
-              <img src="assets/img/ExploreSliderLight.jpg" alt="ExploreLight">
-              <img src="assets/img/ExploreSliderDark.jpg" alt="ExploreDark">
+            <div class="explore__slider-wrapper">
+              <div class="explore__slider-before">
+                <img class="explore__slider-content-image" src="assets/img/ExploreSliderDark.jpg" alt="ExploreDark" draggable="false">
+              </div>
+              <div class="explore__slider-after">
+                <img class="explore__slider-content-image" src="assets/img/ExploreSliderLight.jpg" alt="ExploreLight" draggable="false">
+              </div>
+              
+              <div class="explore__slider-scroller">
+                <svg class="explore__slider-scroller__thumb" width="39" height="700" viewBox="0 0 39 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 365C27.5081 365 34 358.508 34 350.5C34 342.492 27.5081 336 19.5 336C11.4919 336 5 342.492 5 350.5C5 358.508 11.4919 365 19.5 365ZM19.5 370C30.2696 370 39 361.27 39 350.5C39 339.73 30.2696 331 19.5 331C8.73045 331 0 339.73 0 350.5C0 361.27 8.73045 370 19.5 370Z" fill="white"/>
+                  <path d="M17 0H22V332H17V0Z" fill="white"/>
+                  <path d="M17 368H22V700H17V368Z" fill="white"/>
+                  </svg>                  
+              </div>
             </div>
           </div>
         </div>
@@ -778,7 +791,10 @@
                 <p class="contacts__row">mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></p>
               </address>
             </div>
-            <div class="contacts__map"><img src="./assets/img/contactsBackground.png" alt="map"> </div>
+            <div class="contacts__map">
+              <div id="map"></div>
+              <!-- <img src="./assets/img/contactsBackground.png" alt="map"> -->
+            </div>
           </div>
         </div>
       </div>
@@ -872,7 +888,8 @@
     </div>
   </footer>
 
-  <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://unpkg.com/cocoen/dist/cocoen.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
   <script src="js/burger.js"></script>
@@ -882,6 +899,7 @@
   <script src="js/player.js"></script>
   <script src="js/booking.js"></script>
   <script src="js/gallery.js"></script>
+  <script src="js/map.js"></script>
 </body>
 
 </html>

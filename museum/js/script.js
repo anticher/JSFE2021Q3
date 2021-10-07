@@ -15,30 +15,30 @@ const ticketsAmountSeniorRightButton = document.querySelector('#amount__senior-r
 
 
 
-bookingEntryTicketBasicLeftButton.addEventListener('click', function() {
+bookingEntryTicketBasicLeftButton.addEventListener('click', function () {
     bookingEntryTicketBasicLeftButton.nextElementSibling.stepDown()
 })
-bookingEntryTicketBasicRightButton.addEventListener('click', function() {
+bookingEntryTicketBasicRightButton.addEventListener('click', function () {
     bookingEntryTicketBasicRightButton.previousElementSibling.stepUp()
 })
-bookingEntryTicketSeniorLeftButton.addEventListener('click', function() {
+bookingEntryTicketSeniorLeftButton.addEventListener('click', function () {
     bookingEntryTicketSeniorLeftButton.nextElementSibling.stepDown()
 })
-bookingEntryTicketSeniorRightButton.addEventListener('click', function() {
+bookingEntryTicketSeniorRightButton.addEventListener('click', function () {
     bookingEntryTicketSeniorRightButton.previousElementSibling.stepUp()
 })
 
 
-ticketsAmountBasicLeftButton.addEventListener('click', function() {
+ticketsAmountBasicLeftButton.addEventListener('click', function () {
     ticketsAmountBasicLeftButton.nextElementSibling.stepDown()
 })
-ticketsAmountBasicRightButton.addEventListener('click', function() {
+ticketsAmountBasicRightButton.addEventListener('click', function () {
     ticketsAmountBasicRightButton.previousElementSibling.stepUp()
 })
-ticketsAmountSeniorLeftButton.addEventListener('click', function() {
+ticketsAmountSeniorLeftButton.addEventListener('click', function () {
     ticketsAmountSeniorLeftButton.nextElementSibling.stepDown()
 })
-ticketsAmountSeniorRightButton.addEventListener('click', function() {
+ticketsAmountSeniorRightButton.addEventListener('click', function () {
     ticketsAmountSeniorRightButton.previousElementSibling.stepUp()
 })
 
@@ -101,28 +101,28 @@ const swiper = new Swiper('.welcome__slider', {
     direction: 'horizontal',
     loop: true,
     speed: 700,
-  
+
     // If we need pagination
     pagination: {
-      el: '.slider__pagination',
-      clickable: true,
-    //   bulletElement: 'div',
-      bulletClass: 'slider__button-pagination',
-      bulletActiveClass: 'slider__button-pagination-active',
+        el: '.slider__pagination',
+        clickable: true,
+        //   bulletElement: 'div',
+        bulletClass: 'slider__button-pagination',
+        bulletActiveClass: 'slider__button-pagination-active',
     },
-  
+
     // Navigation arrows
     navigation: {
-      nextEl: '.slider__button-next',
-      prevEl: '.slider__button-prev',
+        nextEl: '.slider__button-next',
+        prevEl: '.slider__button-prev',
     },
-  
+
     // And if we need scrollbar
     // scrollbar: {
     //   el: '.swiper-scrollbar',
     // },
-  })
-  swiper.on('slideChangeTransitionStart', function () {
+})
+swiper.on('slideChangeTransitionStart', function () {
     let result
     if (swiper.activeIndex > 5) {
         result = 1
@@ -132,7 +132,6 @@ const swiper = new Swiper('.welcome__slider', {
         result = swiper.activeIndex
     }
     sliderNumber.innerHTML = '0' + result
-  })
-
+})
 
 
