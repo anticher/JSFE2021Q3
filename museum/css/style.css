@@ -463,14 +463,14 @@ header {
 }
 
 .explore__slider-after{
-  width: 225px;
+  width: 125px;
 }
 
 .explore__slider-scroller{
   width: 50px;
-  height:50px;
+  height: 50px;
   position: absolute;
-  left: 200px;
+  left: 100px;
   top: 50%;
   transform:translateY(-50%);
   border-radius:50%;
