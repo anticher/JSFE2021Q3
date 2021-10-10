@@ -147,41 +147,50 @@
     position: relative;
 }
 
-.booking-form__date::-webkit-calendar-picker-indicator, .booking-form__time::-webkit-calendar-picker-indicator {
-    width: 45px;
+.booking-form__date::-webkit-calendar-picker-indicator {
+    margin-right: 5px;
+    width: 15px;
     background-color: var(--white);
-    background: url(../assets/svg/bookingArrow.svg) 20px center no-repeat;
+    background: url(../assets/svg/bookingArrow.svg) left center no-repeat;
     cursor: pointer;
 }
 
-.booking-form__date, .booking-form__time {
+.booking-form__date {
     position: relative;
 }
 
-.booking-form__date::-webkit-datetime-edit, .booking-form__time::-webkit-datetime-edit {
-    opacity: 0;
+.booking-form__date::-webkit-datetime-edit {
+    opacity: 1;
 }
 
-.booking-form__date-label, .booking-form__time-label {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 75%;
-    height: 95%;
-    padding-left: 45px;
+
+.booking-form__time {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.booking-form__time {
+    background-color: var(--white);
+    background: url(../assets/svg/bookingArrow.svg) 94% center no-repeat;
+    cursor: pointer;
+}
+
+.booking-form__label {
     font-family: var(--roboto);
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-    color: #030303;
-    background-color: var(--white);
-    z-index: 11;
+    color: rgb(255, 0, 0);
+    opacity: 0;
 }
 
-.booking-form__select {
+.booking__label-error {
+    opacity: 1;
+}
+
+.booking-form__select{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

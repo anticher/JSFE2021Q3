@@ -9,17 +9,25 @@ const player = document.querySelector('.player-active')
 const playerContainer = document.querySelector('.video__player')
 const playerControls = document.querySelector('.video__controls')
 
-document.addEventListener('keydown', function(event) {
+player.addEventListener("keydown", function(event) {
+  /* check the key you don't want and if hit call: */
   if (event.key === ' ') {
+    event.preventDefault()
     handlePlayButton()
-  } else if (event.key === 'm' || event.key === 'M') {
+  } else if (event.key === 'm' || event.key === 'M' || event.key === 'ь' || event.key === 'Ь') {
     onMuteClick()
-  } else if (event.key === 'f' || event.key === 'F') {
+  } else if (event.key === 'f' || event.key === 'F' || event.key === 'а' || event.key === 'А') {
     toggleFullscreen()
-  } else if (event.shiftKey && event.key == ',' || event.key == '<') {
+  } else if (event.shiftKey && event.key == ',' || event.key == '<' || event.key == 'б' || event.key == 'Б') {
+    if (player.playbackRate > 0.5) {
+      player.playbackRate -= 0.5
+    }
     console.log(player.playbackRate)
-  } else if (event.shiftKey && event.key == '.' || event.key == '>') {
-    player.playbackRate -= 0.5
+  } else if (event.shiftKey && event.key == '.' || event.key == '>' || event.key == 'ю' || event.key == 'Ю') {
+    if (player.playbackRate < 4) {
+      player.playbackRate += 0.5
+    }
+    console.log(player.playbackRate)
   }
 })
 
