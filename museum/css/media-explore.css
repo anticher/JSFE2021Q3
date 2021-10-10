@@ -67,32 +67,25 @@
 }
 
 @media (max-width: 767px) {
-  .explore__slider {
-    width: 90.5vw;
-    height: 87.62vw;
+  .explore {
+    padding: 40px 0;
   }
-  .explore__image_light img {
-    min-width: 90.5vw;
-    height: 87.62vw;
+  .explore__header {
+    margin-bottom: 5px;
+  }
+  .explore__slider {
+    width: 100%;
+    max-height: 800px;
   }
 
-  .explore__image img {
+  .explore__slider-wrapper {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   .explore__btn {
     height: 100%;
   }
   .explore__btn svg {
     height: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  .explore {
-    padding: 40px 0;
-  }
-  .explore__header {
-    margin-bottom: 5px;
   }
 }

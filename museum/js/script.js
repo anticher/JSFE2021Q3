@@ -96,3 +96,15 @@ swiper.on('slideChangeTransitionStart', function () {
 })
 
 
+//toTop
+
+const toTopBtn = document.querySelector('#toTop')
+const toTopBtnCheckpoint = document.querySelector('#video')
+
+window.addEventListener('scroll', function() {
+    if(toTopBtnCheckpoint.getBoundingClientRect().y < 2000) {
+        toTopBtn.classList.add('active')
+    } else {
+        toTopBtn.classList.remove('active')
+    }
+})

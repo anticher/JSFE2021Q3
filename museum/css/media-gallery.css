@@ -17,6 +17,7 @@
 
 @media (max-width: 1024px) {
   .gallery {
+    height: 1460px;
     padding-top: 60px;
   }
   .gallery__wrapper {
@@ -34,6 +35,7 @@
 
 @media (max-width: 768px) {
   .gallery {
+    height: 1220px;
     padding-top: 40px;
   }
   .gallery__header {
@@ -64,6 +66,9 @@
 }
 
 @media (max-width: 420px) {
+  .gallery {
+    height: 750px;
+  }
   .gallery__header {
     margin-bottom: 40px;
   }

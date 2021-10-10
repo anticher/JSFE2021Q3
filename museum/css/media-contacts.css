@@ -41,6 +41,9 @@
     line-height: 23px;
     margin-bottom: 12px;
   }
+  .contacts__map {
+    height: 460px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -78,6 +81,7 @@
     line-height: 21px;
   }
   .contacts__map {
+    height: 490px;
     max-width: 100%;
   }
 }
@@ -115,6 +119,7 @@
     padding: 40px 0 43px;
   }
   .contacts__map {
+    height: 250px;
     max-width: none;
   }
 }

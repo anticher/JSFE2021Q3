@@ -9,7 +9,7 @@ const player = document.querySelector('.player-active')
 const playerContainer = document.querySelector('.video__player')
 const playerControls = document.querySelector('.video__controls')
 
-player.addEventListener("keydown", function(event) {
+player.addEventListener("keydown", function (event) {
   /* check the key you don't want and if hit call: */
   if (event.key === ' ') {
     event.preventDefault()
@@ -22,12 +22,10 @@ player.addEventListener("keydown", function(event) {
     if (player.playbackRate > 0.5) {
       player.playbackRate -= 0.5
     }
-    console.log(player.playbackRate)
   } else if (event.shiftKey && event.key == '.' || event.key == '>' || event.key == 'ю' || event.key == 'Ю') {
     if (player.playbackRate < 4) {
       player.playbackRate += 0.5
     }
-    console.log(player.playbackRate)
   }
 })
 
@@ -161,8 +159,22 @@ const swiperVideo = new Swiper('.video-slider__wrapper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 3,
-  spaceBetween: 42,
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    769: {
+      slidesPerView: 3,
+      spaceBetween: 42,
+    }
+  },
 
   // If we need pagination
   pagination: {
@@ -185,7 +197,6 @@ const swiperVideo = new Swiper('.video-slider__wrapper', {
 });
 
 swiperVideo.on('slideChangeTransitionStart', function () {
-  console.log(swiperVideo.realIndex)
   player.src = `./assets/video/video${swiperVideo.realIndex}.webm`
   player.poster = `./assets/video/poster${swiperVideo.realIndex}.jpeg`
   playPauseBtn.classList.remove('playing')
@@ -193,7 +204,6 @@ swiperVideo.on('slideChangeTransitionStart', function () {
   player.currentTime = 0
   progress.value = 0
   player.ontimeupdate()
-  // players.forEach(el => el.classList.remove('player-active'))
-  // players[result].classList.add('player-active')
-  // player.load()
+
+
 })

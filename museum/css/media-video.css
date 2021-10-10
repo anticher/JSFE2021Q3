@@ -74,12 +74,13 @@
     margin-bottom: 20px;
   }
   .video__player {
+    max-height: 405px;
     margin-bottom: 20px;
   }
   .video__big-play {
     width: 80px;
     height: 80px;
-    top: 54%;
+    top: 46%;
   }
 
   .video__play-pause-btn {
@@ -118,7 +119,6 @@
   }
   .video__controls {
     justify-content: space-around;
-    position: relative;
     height: 60px;
   }
   .video__controls-absolute {
@@ -132,13 +132,13 @@
   }
   .video-slider__slide {
     max-width: none;
-    max-height: none;
-    width: 400px;
-    height: 200px;
+    width: 354px;
+    height: 199px;
   }
 
   iframe {
-    width: 400px;
+    width: 100%;
+    height: 100%;
   }
 
   .video-slider__controls {

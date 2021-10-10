@@ -60,7 +60,7 @@
   }
   .welcome__slider {
     width: 700px;
-    height: auto;
+    height: 585px;
   }
   .slider__controls {
     bottom: 0;
@@ -134,7 +134,7 @@
     height: 646px;
   }
   .slider__controls {
-    bottom: 5px;
+    bottom: 0px;
     height: 100px;
   }
 }

@@ -48,7 +48,7 @@
     padding-left: 55px;
     padding-right: 120px;
     width: 297px;
-    height: 600px;
+    height: 585px;
     bottom: -580px;
   }
 }
@@ -173,7 +173,7 @@
     top: 90px;
     padding-bottom: 0;
     min-height: 0;
-    height: auto;
+    height: 540px;
   }
   .logo__main {
     width: 138px;
@@ -203,7 +203,7 @@
     width: 100%;
   }
   .header__burger {
-    max-height: 400px;
+    max-height: 540px;
   }
   .navbar__container {
     flex: 0 0 auto;
