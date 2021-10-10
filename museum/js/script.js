@@ -1,55 +1,4 @@
-// buttons plus and minus of tickets section that change input(number of tickets)
 
-
-
-
-// optimization
-// function updateElements(elements) {
-//     // loop through all elements
-//     for (let i = 0; i < elements.length; i++) {
-//         const currentNode = elements[i].addedNodes;
-
-//         for (let j = 0; j < currentNode.length; j++) {
-//             if (currentNode[j].nodeName.toLowerCase() == "iframe") {
-//                 const myLink = currentNode[j].src;
-
-//                 // create local HTML code with Youtube link - replace ___data___ with data - dev.to's markdown parser won't let me use it :)
-//                 const localHtml = '<html><body style="background:rgb(200,200,200)"><a href="' + myLink + '" style="font-size:14px;text-align:center;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><img src="___data___:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMuOTJtbSIgaGVpZ2h0PSIyMy42Mm1tIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMy45MiAyMy42MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04OC4wNCAtMTM2LjcpIj4KICA8cGF0aCB0cmFuc2Zvcm09InNjYWxlKC4yNjQ2KSIgZD0ibTM0MS43IDUxNi42Yy00Ljk0NiAwLTguOTI4IDMuOTgxLTguOTI4IDguOTI4djcxLjQzYzAgNC45NDYgMy45ODEgOC45MjggOC45MjggOC45MjhoMTEwLjRjNC45NDYgMCA4LjkyOC0zLjk4MSA4LjkyOC04LjkyOHYtNzEuNDNjMC00Ljk0Ni0zLjk4MS04LjkyOC04LjkyOC04LjkyOHptNDcuMzIgMjkuNTYgMjYuNTIgMTUuMDktMjYuNTIgMTUuMDl6IiBmaWxsPSIjZjAwIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjMuMDM0cHgiIHN0eWxlPSJwYWludC1vcmRlcjpzdHJva2UgZmlsbCBtYXJrZXJzIi8+CiA8L2c+Cjwvc3ZnPgo=" width="80" height="55"/><br/>play video</a></body></html>';
-
-//                 currentNode[j].setAttribute("data-src", myLink);
-
-//                 // set local HTML
-//                 // replace ___data___ with data - dev.to's markdown parser won't let me use it :)
-//                 currentNode[j].src = "data:text/html;charset=utf-8," + localHtml;
-//             }
-//         }
-//     }
-//     // remove listeners at the end
-//     removeEventListener(document, updateElements);
-// }
-
-// function removeEvents(obj, callback) {
-//     if (window.__obs) {
-//         window.__obs.disconnect();
-//     }
-// }
-
-// function registerEvents(obj, callback) {
-//     const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-//     if (MutationObserver) {
-//         const obs = new MutationObserver(function(mutations, observer) {
-//             callback(mutations)
-//         });
-//         obs.observe(obj, {
-//             childList: true,
-//             subtree: true
-//         });
-//         window.__obs = obs;
-//     }
-// }
-
-// // register events
-// registerEvents(document, updateElements);
 
 
 
@@ -108,3 +57,28 @@ window.addEventListener('scroll', function() {
         toTopBtn.classList.remove('active')
     }
 })
+
+
+console.log(`
+Слайдер в секции Welcome +24/24
+
+Слайдер в секции Video +16/20
+ 
+Кастомный видеоплеер +36/36
+
+Слайдер сравнения изображений в секции Explore +10/10
+
+Анимация при прокрутке изображений в секции Galery +8/8
+
+Калькулятор продажи билетов в секции Tiskets +10/10
+
+Калькулятор продажи билетов в форме продажи билетов +14/14
+
+Валидация формы +16/16
+
+Интерактивная карта в секции Contacts +12/12
+
+Любой собственный дополнительный функционал - кнопка прокрутки страницы вверх +10/10
+
+Спасибо за проверку и хорошего дня! =)
+`)
