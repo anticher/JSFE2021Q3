@@ -1,0 +1,1 @@
+(()=>{"use strict";const t=document.querySelector(".date"),e=document.querySelector(".time"),n=new Date;!function o(){const c=(new Date).toLocaleTimeString();e.textContent=c,function(){const e=n.toLocaleDateString("en-En",{weekday:"long",month:"long",day:"numeric"});t.textContent=e}(),setTimeout(o,1e3)}()})();
