@@ -361,7 +361,7 @@ body {
   max-height: 80vh;
   max-width: 80vw;
   left: 20px;
-  bottom: 120px;
+  bottom: 100px;
   border-radius: 10px;
   background-color: #000000;
   transition: all 0.3s ease-in;
@@ -543,7 +543,7 @@ body {
   padding: 10px;
   position: absolute;
   right: 20px;
-  bottom: 120px;
+  bottom: 100px;
   width: 300px;
   min-height: 100px;
   max-height: 300px;
@@ -785,6 +785,10 @@ body {
   .quotes {
     flex: 1 1 100%;
     order: -1;
+  }
+  .settings-window,
+  .todos-output {
+    bottom: 80px
   }
 }
 
