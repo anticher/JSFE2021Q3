@@ -609,7 +609,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   text-align: left;
-  overflow: scroll;
   max-width: 70%;
   font-size: 18px;
 }
