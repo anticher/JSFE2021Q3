@@ -172,6 +172,7 @@ body {
 .player-icon:hover,
 .slider-icon:hover,
 .settings-button:hover,
+.todos-button:hover,
 .change-quote:hover {
   opacity: 1;
 }
@@ -179,6 +180,7 @@ body {
 .mute-btn:active,
 .player-icon:active,
 .slider-icon:active,
+.todos-button:active,
 .change-quote:active {
   border: 0;
   outline: 0;  
@@ -362,7 +364,6 @@ body {
 .settings-window {
   padding: 10px;
   position: absolute;
-  /* height: 500px; */
   width: 450px;
   left: -500px;
   bottom: 50px;
@@ -480,6 +481,7 @@ body {
   width: 100%;
   height: 30px;
   border-radius: 10px;
+  font-size: 18px;
   background-color: #ffffff;
 }
 
@@ -516,6 +518,88 @@ body {
 
 .author {
   min-height: 20px;
+}
+
+.todos { 
+  position: relative;
+
+}
+.todos-window {
+  padding: 10px;
+  position: absolute;
+  right: -500px;
+  bottom: 50px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #000000;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}
+
+.todos-window.active {
+  right: 0;
+}
+
+.todos-output {
+  width: 100%;
+  margin-bottom: 20px;
+
+  overflow: scroll
+}
+
+.todos-item {
+  padding: 5px 15px 5px 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.todos-checkbox {
+  margin-right: 5px;
+}
+
+.todos-checkbox:checked + label {
+  opacity: 0.8;
+  text-decoration: line-through;
+}
+
+.todos-label {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  overflow: scroll;
+  max-width: 70%;
+  font-size: 18px;
+}
+
+.todos-delete {
+  margin-left: auto;
+}
+
+.todos-input {
+  margin-top: auto;
+  padding: 5px;
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #ffffff;
+}
+
+.todos-button {
+  width: 64px;
+  height: 32px;
+  border: 0;
+  outline: 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: .3s;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: transparent;
 }
 
 
