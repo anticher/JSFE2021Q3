@@ -344,7 +344,7 @@ body {
   height: calc(100% - 30px);
   display: flex;
   align-items: flex-end;
-  padding: 20px;
+  padding: 10px;
   gap: 10px;
   overflow: hidden;
 }
@@ -365,7 +365,7 @@ body {
   border-radius: 10px;
   background-color: #000000;
   transition: all 0.3s ease-in;
-  z-index: 10;
+  z-index: 12;
   opacity: 0;
   display: block;
   visibility: hidden;
@@ -554,7 +554,7 @@ body {
   border-radius: 10px;
   transition: all 0.3s ease-in;
   opacity: 0;
-  z-index: 10;
+  z-index: 11;
   visibility: hidden;
 }
 
@@ -648,7 +648,11 @@ body {
   height: 0;
   bottom: 0;
   left: -500px;
-  z-index: 9;
+  z-index: 11;
+}
+
+.todos-overlay {
+  z-index: 10;
 }
 
 .settings-overlay.active, .todos-overlay.active {
@@ -734,6 +738,10 @@ body {
   .author {
     margin-top: 0;
   }
+  .settings-window,
+  .todos-window {
+    bottom: 80px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -742,6 +750,7 @@ body {
     font-size: 50px;
   }
   .date {
+    font-size: 20px;
     margin-bottom: 10px
   }
   .greeting-container {
@@ -754,7 +763,7 @@ body {
     font-size: 24px;
   }
   .quote {
-    line-height: 20px;
+    line-height: 16px;
     font-size: 14px;
   }
   .settings {
@@ -795,12 +804,18 @@ body {
 @media (max-width: 500px) {
   .header {
     min-height: 0;
+    padding: 10px;
   }
   .main {
     min-height: 0;
+    padding: 10px;
   }
   .footer {
+    padding: 10px;
     min-height: 0;
+  }
+  .footer .container {
+    padding: 0;
   }
 }
 
