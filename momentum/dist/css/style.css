@@ -369,8 +369,10 @@ body {
   opacity: 0;
   display: block;
   visibility: hidden;
-  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
+
 
 .settings-window.active {
   opacity: 1;
@@ -564,7 +566,27 @@ body {
 .todos-output {
   width: 100%;
   margin-bottom: 20px;
-  overflow-x: scroll
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.settings-window::-webkit-scrollbar,
+.todos-output::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.settings-window::-webkit-scrollbar-thumb,
+.todos-output::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7)
+}
+
+.settings-window::-webkit-scrollbar-track,
+.todos-output::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 
 .todos-item {
