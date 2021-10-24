@@ -11,17 +11,12 @@
 }
 
 body {
-  /* min-width: 480px;
-  min-height: 100vh;
-  max-height: 100vh;
-  max-width: 100vw; */
   width: 100vw;
   height: 100vh;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
   color: #fff;
   text-align: center;
-  /* background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5); */
   background: url(style.css) center/cover, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
@@ -212,7 +207,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  row-gap: 10px;
+  gap: 10px;
   width: 180px;
   min-height: 180px;
   text-align: left;
@@ -355,7 +350,6 @@ body {
 }
 
 .settings-window {
-  padding: 10px;
   position: absolute;
   width: 450px;
   max-height: 80vh;
@@ -369,7 +363,6 @@ body {
   opacity: 0;
   display: block;
   visibility: hidden;
-  overflow-y: scroll;
   overflow-x: hidden;
 }
 
@@ -402,7 +395,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 /* checkbuttons styles */
@@ -717,6 +710,9 @@ body {
   .progress-time {
     display: none;
   }
+  .weather {
+    gap: 5px;
+  }
   .time {
     min-height: 80px;
     font-size: 72px;
@@ -736,7 +732,7 @@ body {
     margin-bottom: 10px;
   }
   .author {
-    margin-top: 0;
+    margin-top: 3px;
   }
   .settings-window,
   .todos-window {
@@ -763,6 +759,7 @@ body {
     font-size: 24px;
   }
   .quote {
+    min-height: 0;
     line-height: 16px;
     font-size: 14px;
   }
@@ -772,6 +769,9 @@ body {
   }
   .todos {
     font-size: 16px;
+  }
+  .footer .container {
+    gap: 0;
   }
 }
 
@@ -794,10 +794,6 @@ body {
   .quotes {
     flex: 1 1 100%;
     order: -1;
-  }
-  .settings-window,
-  .todos-output {
-    bottom: 80px
   }
 }
 
@@ -833,6 +829,8 @@ body {
     min-height: 0;
   }
   .settings-window {
+    left: 50%;
+    transform: translateX(-50%);
     max-width: 90vw;
   }
   .settings-window h4 {
@@ -840,6 +838,11 @@ body {
   }
   .settings-window span {
     font-size: 12px;
+  }
+  .todos-window {
+    width: 90vw;
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 
@@ -849,8 +852,7 @@ body {
   }
   .weather {
     margin-top: 5px;
-    width: auto;
-    max-width: 40%;
+    max-width: 47%;
     font-size: 14px;
   }
   .city {
@@ -889,5 +891,14 @@ body {
   .todos-window {
     width: 100%;
     max-width: 90vw;
+  }
+}
+
+@media (max-width: 330px) {
+  .settings-window h4 {
+    font-size: 11px;
+  }
+  .settings-window span {
+    font-size: 11px;
   }
 }
