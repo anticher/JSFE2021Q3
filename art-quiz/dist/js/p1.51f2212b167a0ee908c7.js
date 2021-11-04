@@ -1,0 +1,1 @@
+!async function(){const n=await fetch("js/images.json"),o=await n.json();console.log(o)}();
