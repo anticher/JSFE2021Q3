@@ -1,0 +1,237 @@
+.choose_author_page {
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    .top {
+        width: 60vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .back {
+        flex: 0 0 160px;
+    }
+    .back_button {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        &::before {
+            width: 60px;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            transform: rotate(45deg);
+            background-color: #000000;
+            content: "";
+        }
+        &::after {
+            width: 60px;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            transform: rotate(-45deg);
+            background-color: #000000;
+            content: "";
+        }
+    }
+    .header {
+        flex: 0 0 65%;
+        text-align: center;
+    }
+    .timer {
+        flex: 0 0 160px;
+        height: 60px;
+        text-transform: uppercase;
+        text-align: right;
+        font-size: 36px;
+        border: 0;
+        background-image: url(assets/images/svg/timer-picture.svg);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-size: contain;
+        color: $main;
+    }
+    .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vmin;
+        gap: 2vmin;
+    }
+    .item {
+        width: 100%;
+        height: 0;
+        padding-bottom: 70%;
+        background-image: url(assets/images/bg/starry-night.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+    }
+    .bullets {
+        display: flex;
+
+        gap: 30px;
+    }
+    .bullet {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #000000;
+        opacity: 0.7;
+    }
+    .bottom {
+        display: flex;
+        flex-wrap: wrap;
+        width: 520px;
+        gap: 20px;
+    }
+    .bottom_item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        padding: 20px;
+        width: 250px;
+        height: 60px;
+        border: 0;
+        color: $main;
+        background-color: $white;
+        border-radius: 10px;
+        &:nth-child(even) {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .choose_author_page {
+        .top {
+            width: 70vw;
+        }
+        .header {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .choose_author_page {
+        .top {
+            padding: 0 20px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .header {
+            margin-bottom: -15px;
+            flex: 1 0 100%;
+            order: 3;
+            font-size: 30px;
+            line-height: 37px;
+        }
+        .back {
+            flex: 0 0 60px;
+        }
+        .timer {
+            flex: 0 0 170px;
+        }
+        .middle {
+            width: 90vmin;
+        }
+        .item {
+            padding-bottom: 100%;
+        }
+        .bullets {
+            gap: 3vmin;
+        }
+        .bullet {
+            width: 3vmin;
+            height: 3vmin;
+        }
+        .bottom {
+            width: 70vmin;
+            gap: 2vmin;
+            // justify-content: space-between;
+        }
+        .bottom_item {
+            width: 34vmin;
+            height: 8vmin;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .choose_author_page {
+        min-height: 100vh;
+        .top {
+            width: 100vmin;
+            height: 40vmin;
+        }
+        .header {
+            margin-bottom: -40px;
+            font-size: 24px;
+            line-height: 29px;
+        }
+        .middle {
+            justify-content: center;
+        }
+        .bottom {
+            width: 90vmin;
+        }
+        .bottom_item {
+            width: 44vmin;
+            height: 15vmin;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .choose_author_page {
+        padding: 5px;
+
+        .top {
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .choose_author_page {
+        .top {
+            height: auto;
+            gap: 15px;
+        }
+        .header {
+            font-size: 18px;
+            line-height: 22px;
+        }
+        .back_button {
+            width: 40px;
+            height: 40px;
+            &:before {
+                width: 40px;
+            }
+            &:after {
+                width: 40px;
+            }
+        }
+        .timer {
+            flex: 0 0 110px;
+            height: 40px;
+            font-size: 24px;
+        }
+        .bottom_item {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+}

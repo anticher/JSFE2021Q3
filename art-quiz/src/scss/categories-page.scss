@@ -1,0 +1,223 @@
+.categories_page {
+    padding: 20px 0 60px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    .top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttons_wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header {
+        letter-spacing: 3px;
+        font-size: 72px;
+        font-weight: 700;
+        background-size: 25%;
+        background-position: left 50%;
+        background-repeat: no-repeat;
+        padding-left: 17%;
+        line-height: 180px;
+        background-image: url(assets/images/svg/logoA.svg);
+    }
+    .back {
+        flex: 0 0 160px;
+    }
+    .back_button {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        &::before {
+            width: 60px;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            transform: rotate(45deg);
+            background-color: #000000;
+            content: "";
+        }
+        &::after {
+            width: 60px;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            transform: rotate(-45deg);
+            background-color: #000000;
+            content: "";
+        }
+    }
+    .home_button {
+        width: 130px;
+        height: 130px;
+        border-radius: 20px;
+        background-image: url(assets/images/svg/homeBtnLogo.svg);
+        background-size: 90%;
+        background-position: center;
+    }
+    .middle {
+        padding-bottom: 40px;
+        width: 90vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .items_wrapper {
+        padding: 3.5vw;
+        display: flex;
+        flex-wrap: wrap;
+        width: 80vw;
+        background-color: $main4;
+        border-radius: 20px;
+        gap: 3.5vw;
+    }
+    .item {
+        position: relative;
+        padding: 20px;
+        width: 22vw;
+        height: 22vw;
+        display: flex;
+        justify-content: space-between;
+        background-image: url(assets/images/bg/shagal.jpg);
+        background-size: contain;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+    }
+    .item.grey {
+        filter: grayscale(100%) brightness(60%);
+    }
+    .item_number {
+        align-self: flex-end;
+        padding: 15px;
+        height: 105px;
+        font-size: 72px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+    .item_score {
+        padding: 15px;
+        height: 70px;
+        font-size: 36px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+    .item_pop {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -150%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+        background-color: $white;
+        border-radius: 10px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        transition: all 1s ease-in;
+    }
+    .item_pop.visible {
+        bottom: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .categories_page {
+        .item_number {
+            height: 80px;
+            font-size: 50px;
+        }
+        .item_score {
+            height: 60px;
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .categories_page {
+        .item {
+            padding: 10px;
+        }
+        .item_number {
+            height: 70px;
+            font-size: 40px;
+        }
+        .item_score {
+            height: 50px;
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .categories_page {
+        .header {
+            padding-left: 18%;
+            font-size: 60px;
+            line-height: 120px;
+        }
+        .home_button {
+            width: 15vw;
+            height: 15vw;
+        }
+        .item_number {
+            padding: 5px;
+            height: 40px;
+            font-size: 30px;
+        }
+        .item_score {
+            padding: 5px;
+            height: 24px;
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .categories_page {
+        gap: 15px;
+        .header {
+            padding-left: 22%;
+            font-size: 36px;
+            line-height: 70px;
+        }
+        .items_wrapper {
+            padding: 5vw;
+            gap: 4vw;
+        }
+        .item {
+            width: 33vw;
+            height: 33vw;
+        }
+    }
+}
+
+@media (max-width: 340px) {
+    .categories_page {
+        .header {
+            padding-left: 22%;
+            font-size: 30px;
+            line-height: 60px;
+        }
+        .item {
+            padding: 5px;
+        }
+    }
+}

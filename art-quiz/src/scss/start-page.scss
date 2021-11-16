@@ -1,0 +1,152 @@
+.start_page {
+    padding: 0 0 60px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    .top {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .logo {
+        width: 1000px;
+        height: 20vh;
+        background-image: url(assets/images/svg/logo.svg);
+        background-size: 100% 100%;
+    }
+    .middle {
+        width: 100vmin;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px
+    }
+
+    .item {
+        width: 415px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .item_img {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 415px;
+        height: 415px;
+        &.author {
+            background-image: url(assets/images/bg/shagal.jpg);
+        }
+        &.picture {
+            background-image: url(assets/images/bg/starry-night.jpg);
+        }
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+    }
+
+    .item_descr {
+        width: 100%;
+        text-align: right;
+        color: $main4;
+    }
+
+    .settings_button {
+        background-image: url(assets/images/svg/settingsBtnLogo.svg);
+    }
+}
+
+
+
+@media (max-width: 1440px) {
+    .start_page {
+        padding: 0 0 50px;
+        .item {
+            width: 40%;
+        }
+        .item_img {
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+        }
+    }
+}
+
+// @media (max-width: 1024px) {
+//     .start_page {
+//         .middle {
+//             width: 80vw;
+//         }
+//     }
+
+// }
+
+@media (max-width: 768px) {
+    .start_page {
+        .item_descr {
+            font-size: 30px;
+            line-height: 37px;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .start_page {
+        .item_descr {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .start_page {
+        padding: 20px 0 40px;
+        .logo {
+            width: 40%;
+            height: 0;
+            padding-bottom: 40%;
+        }
+        .middle {
+            padding: 20px 0;
+            flex: 1 1 90%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .item {
+            align-items: center;
+            position: relative;
+            width: 100%;
+            gap: 5px;
+        }
+        .item_img {
+            width: 90%;
+            height: 0;
+            padding-bottom: 50%;
+        }
+        .item_descr {
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+            // transform: translateX(50%);
+            width: 80%;
+            color: $white;
+        }
+    }
+}
+
+
+@media (max-width: 420px) {
+    .start_page {
+        padding: 0 0 15px;
+        gap: 5px;
+        .middle {
+            padding: 10px 0;
+            gap: 10px;
+        }
+
+    }
+}
