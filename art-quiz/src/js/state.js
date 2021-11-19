@@ -4,7 +4,8 @@ export const state = {
     questionIndex: undefined,
     userAnswers: [],
     categoriesScoreNumber: undefined,
-    interval: undefined
+    interval: undefined,
+    intervalNumber: undefined,
 }
 
 
@@ -17,4 +18,5 @@ export function clearState() {
     state.categoriesScoreNumber = undefined
     state.answers = []
     state.interval = undefined
+    state.intervalNumber = undefined
 }

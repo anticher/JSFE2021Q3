@@ -1,11 +1,18 @@
-import { loadSettings, loadCategories } from './loadPage.js'
+import { createSettingsPage, createCategoriesPage } from './createPage.js'
+import { Translation } from './translation'
 
 
 
 
-export function createStartPageLanding(lang) {
+export function createStartPageLanding() {
+    let lang = 'en'
+  if (localStorage.getItem('lang') === 'ru') {
+    lang = 'ru'
+  }
     return (`
     <div class="start_page">
+    <iframe src="assets/sounds/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+    
   <div class="top">
       <div class="logo">
   
@@ -16,31 +23,37 @@ export function createStartPageLanding(lang) {
           <button class="item_img author">
           </button>
           <div class="item_descr font36">
-              <span class="font700">Painter</span> quiz
+          ${Translation[lang]['Painter quiz']}
           </div>
       </div>
       <div class="item">
           <button class="item_img picture">
           </button>
           <div class="item_descr font36">
-              <span class="font700">Picture</span> quiz
+          ${Translation[lang]['Picture quiz']}
           </div>
       </div>
   </div>
   <div class="bottom">
       <button class="settings_button button">
-          Settings
+      ${Translation[lang].Settings}
       </button>
+      
   </div>
+  <div class="info">
+      <div class="info-rsschool"><a href="https://rs.school/js/"></a></div>
+      <div class="info-create_year">2021</div>
+      <div class="info-my_github"><a href="https://github.com/anticher/">My github</a></div>
+    </div>
   </div>
     `)
 }
 
-export function startCreateActions() {
+export async function startCreateActions() {
     const setingsButton = document.querySelector('.settings_button')
-    setingsButton.addEventListener('click', () => loadSettings())
+    setingsButton.addEventListener('click', () => createSettingsPage())
     const authorButton = document.querySelector('.item_img.author')
-    authorButton.addEventListener('click', () => loadCategories('author'))
+    authorButton.addEventListener('click', () => createCategoriesPage('author'))
     const pictureButton = document.querySelector('.item_img.picture')
-    pictureButton.addEventListener('click', () => loadCategories('pictures'))
+    pictureButton.addEventListener('click', () => createCategoriesPage('pictures'))
 }

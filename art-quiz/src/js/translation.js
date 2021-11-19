@@ -12,7 +12,7 @@ export const Translation = {
         'Categories': 'Categories',
         'Scores': 'Scores',
         'Who is the author of this picture?': 'Who is the author of this picture?',
-        'what picture was painted by': 'what picture was painted by',
+        'What picture was painted by': 'what picture was painted by',
     },
     'ru': {
         'Painter quiz': 'Угадай художника',
@@ -27,6 +27,6 @@ export const Translation = {
         'Categories': 'Категории',
         'Scores': 'Результаты',
         'Who is the author of this picture?': 'Кто автор этой картины?',
-        'What picture was painted by ': 'Какая картина была написана ',
+        'What picture was painted by': 'Какую картину написал',
     }
 }

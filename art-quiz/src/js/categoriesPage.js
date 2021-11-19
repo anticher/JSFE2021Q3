@@ -1,21 +1,18 @@
-import { loadStart, loadCategories, loadAuthor, loadPictures } from './loadPage'
 import { clearState } from './state.js'
-
-
-
-//categories page create and actions
-
-
+import { Translation } from './translation'
 
 export function createCategoriesPageLanding(category) {
-
+    let lang = 'en'
+  if (localStorage.getItem('lang') === 'ru') {
+    lang = 'ru'
+  }
     
     if (category === 'author' || category === 'pictures') {
         return (`
     <div class="categories_page">
   <div class="top">
       <div class="header">
-          Categories
+      ${Translation[lang].Categories}
       </div>
       <div class="buttons_wrapper">
           <button class="home_button button">
@@ -45,11 +42,11 @@ export function createCategoriesPageLanding(category) {
     <div class="categories_page">
   <div class="top">
       <div class="header">
-          Scores
+      ${Translation[lang].Scores}
       </div>
       <div class="buttons_wrapper">
         <div class="back">
-              <button class="back_button"></button>
+              <button class="back_button button"></button>
         </div>
           <button class="home_button button">
               
@@ -75,87 +72,150 @@ export function createCategoriesPageLanding(category) {
     
 }
 
+export async function categoryCreateActions(startPageCreate, createCategoriesPage, createAuthorPage, createPicturesPage, category, categoryIndex = undefined) {
+    return new Promise(function(resolve, reject) { 
+        const homeButton = document.querySelector('.home_button')
+            homeButton.addEventListener('click', () => startPageCreate())
+        if (document.querySelector('.back_button')) {
+            const backButton = document.querySelector('.back_button')
+            const backCategory = category === 'authorScore' ? 'author' : 'pictures'
+            backButton.addEventListener('click', () => createCategoriesPage(backCategory))
+        }
+        categoryCreateInner(createCategoriesPage, createAuthorPage, createPicturesPage, category, categoryIndex)
+        .then(() => {
+            console.log('op2')
+            
+            resolve()
+        })
 
-export function categoryCreateActions(category, categoryIndex = undefined) {
-    categoryCreateInner(category, categoryIndex)
-    const homeButton = document.querySelector('.home_button')
-    homeButton.addEventListener('click', () => loadStart())
-    if (document.querySelector('.back_button')) {
-        const backButton = document.querySelector('.back_button')
-        const backCategory = category === 'authorScore' ? 'author' : 'pictures'
-        backButton.addEventListener('click', () => loadCategories(backCategory))
-    }
+    })   
 }
 
-function categoryCreateInner(category, categoryIndex = undefined) {
-    const imageItemElements = document.querySelectorAll('.item')
+async function categoryCreateInner(createCategoriesPage, createAuthorPage, createPicturesPage, category, categoryIndex = undefined) {
+    return new Promise(function(resolve, reject) {
+        const imageItemElements = document.querySelectorAll('.item')
     if (category === 'author') {
         imageItemElements.forEach((item, index) => {
             let imageNum = index > 0 ? index * 10 : index
-            categoryItemAddInner(category, item, index, imageNum)
+            categoryItemAddInner(createCategoriesPage, createAuthorPage, createPicturesPage, category, item, index, imageNum)
+            .then((returnindex) => {
+                if (returnindex === imageItemElements.length - 1) {
+                    console.log('op author')
+                    console.log(index)
+                    console.log(imageItemElements.length - 1)
+                    resolve()
+                }
+            })  
         })
     } else if (category === 'pictures') {
         imageItemElements.forEach((item, index) => {
             let imageNum = index * 12 > 0 ? (index + 12) * 10 : index + 120
-            categoryItemAddInner(category, item, index, imageNum)
+            categoryItemAddInner(createCategoriesPage, createAuthorPage, createPicturesPage, category, item, index, imageNum)
+            .then((returnindex) => {
+            if (returnindex === imageItemElements.length - 1) {
+                console.log('op pictures')
+
+                    console.log(index)
+                    console.log(imageItemElements.length - 1)
+                resolve()
+            }
+        })
         })
     } else if (category === 'authorScore') {
         imageItemElements.forEach((item, index) => {
-            // console.log('i', categoryIndex)
             let imageNum = categoryIndex * 10 + index
             scoreItemAddInner(item, index, imageNum)
+            .then((returnindex) => {
+            if (index === imageItemElements.length - 1) {
+
+                console.log('op ascore')
+                    console.log(index)
+                    console.log(imageItemElements.length - 1)
+                resolve()
+            }
+        })
         })
     } else if (category === 'picturesScore') {
         imageItemElements.forEach((item, index) => {
             let imageNum = categoryIndex * 10 + 120 + index
             scoreItemAddInner(item, index, imageNum)
-        })
-    }
-}
-
-async function categoryItemAddInner(category, item, index, imageNum) {
-    if (category === 'author') {
-        item.addEventListener('click', () => {
-            clearState()
-            loadAuthor(imageNum)
-        })
-    } else if (category === 'pictures') {
-        item.addEventListener('click', () => {
-            clearState()
-            loadPictures(imageNum)
-        })
-    } else {
-        throw Error('wrong category')
-    }
-    const scoreString = localStorage.getItem(imageNum)
-    let score
-    if (scoreString) {
-        item.classList.remove('grey')
-        let scoreArr = scoreString.split(',')
-        score = scoreArr.filter(answer => answer === 'true').length
-        item.innerHTML = `
-        <div class="item_number">${index + 1}</div>
-        <button class="item_score">${score}/10</button>
-        `
-        
-        const scoreButton = item.querySelector('.item_score')
-        scoreButton.addEventListener('click', (event) => {
-            event.stopPropagation()
-            if (category === 'author') {
-                loadCategories('authorScore', index)
-            } else if (category === 'pictures') {
-                loadCategories('picturesScore', index)
+            .then((returnindex) => {
+            if (returnindex === imageItemElements.length - 1) {
+                console.log('op pscore')
+                    console.log(index)
+                    console.log(imageItemElements.length - 1)
+                resolve()
             }
         })
-    } else {
-        item.innerHTML = `
-        <div class="item_number">${index + 1}</div>
-        `
+    })
     }
-    item.style.backgroundImage = `url(assets/images/square/${imageNum}.jpg)`
+    })
 }
 
+function categoryItemAddInner(createCategoriesPage, createAuthorPage, createPicturesPage, category, item, index, imageNum) {
+    return new Promise(function(resolve, reject) {
+        if (category === 'author') {
+            item.addEventListener('click', () => {
+                clearState()
+                createAuthorPage(imageNum)
+            })
+        } else if (category === 'pictures') {
+            item.addEventListener('click', () => {
+                clearState()
+                createPicturesPage(imageNum)
+            })
+        } else {
+            throw Error('wrong category')
+        }
+        const scoreString = localStorage.getItem(imageNum)
+        let score
+        if (scoreString) {
+            item.classList.remove('grey')
+            let scoreArr = scoreString.split(',')
+            score = scoreArr.filter(answer => answer === 'true').length
+            item.innerHTML = `
+            <div class="item_number">${index + 1}</div>
+            <button class="item_score">${score}/10</button>
+            `
+            
+            const scoreButton = item.querySelector('.item_score')
+            scoreButton.addEventListener('click', (event) => {
+                event.stopPropagation()
+                if (category === 'author') {
+                    createCategoriesPage('authorScore', index)
+                } else if (category === 'pictures') {
+                    createCategoriesPage('picturesScore', index)
+                }
+            })
+        } else {
+            item.innerHTML = `
+            <div class="item_number">${index + 1}</div>
+            `
+        }
+        const img = new Image()
+        img.src = `../assets/images/square/${imageNum}.jpg`
+        img.onload = () => {
+            console.log(img.src)
+            item.style.backgroundImage = `url(${img.src})`
+            resolve(index)
+        }
+        // item.style.backgroundImage = `url(assets/images/square/${imageNum}.jpg)`
+
+
+    })
+    
+}
+
+// function viewBgImage(item, src) {  
+//     const img = new Image();
+//     img.src = src;
+//     img.onload = () => {      
+//       item.style.backgroundImage = `url(assets/images/square/${src}.jpg)`
+//     }; 
+//   }
+
 async function scoreItemAddInner(item, index, imageNum) {
+    return new Promise(function(resolve, reject) {
     const status = localStorage.getItem(imageNum - index)
     if (status && status.split(',')[index] === 'true') {
         item.classList.remove('grey')
@@ -165,7 +225,14 @@ async function scoreItemAddInner(item, index, imageNum) {
     itemNumberElement.textContent = index + 1
     item.append(itemNumberElement)
     scoreItemAddPop(item, imageNum)
-    item.style.backgroundImage = `url(assets/images/square/${imageNum}.jpg)`
+    const img = new Image()
+    img.src = `../assets/images/square/${imageNum}.jpg`
+    img.onload = () => {
+        console.log(img.src)
+        item.style.backgroundImage = `url(${img.src})`
+        resolve(index)
+    }
+})
 }
 
 

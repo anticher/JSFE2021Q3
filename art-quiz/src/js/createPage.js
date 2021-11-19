@@ -4,39 +4,58 @@ import { createCategoriesPageLanding, categoryCreateActions } from './categories
 import { createChooseAuthorPageLanding, authorCategoryActions } from './authorPage'
 import { createChoosePicturesPageLanding, picturesCategoryActions } from './picturesPage'
 
-function createPage(page, actions) {
+async function createPage(page, actions) {
     const mainElement = document.querySelector('main')
     mainElement.classList.add('hiding')
-    // mainElement.ontransitionend = () => {
+    const preload = page()
+    setTimeout(() => {
+        mainElement.innerHTML = preload
+        const preloader = document.querySelector('.preloader')
+        preloader.classList.remove('hidden')
+        const body = document.querySelector('body')
+        body.append(preloader)
+        actions().then(() => {
+            console.log('opCreate')
+            console.log()
+            preloader.classList.add('hidden')
+            mainElement.classList.remove('hiding')
+        })
+    }, 300)
+
+
+
+
+
+
+
+
+    // mainElement.innerHTML = page()
+
+    // setTimeout(() => {
     //     mainElement.innerHTML = page()
     //     actions()
     //     mainElement.classList.remove('hiding')
-    // }
-    setTimeout(() => {
-        mainElement.innerHTML = page()
-        actions()
-        mainElement.classList.remove('hiding')
-    }, 300)
+    // }, 300)
 }
 
 
-export function startPageCreate(createSettingsPage) {
+export function startPageCreate() {
     createPage(createStartPageLanding, startCreateActions)
 }
 
 export function createSettingsPage() {
-    createPage(createSettingsPageLanding, settingsCreateActions)
+    createPage(createSettingsPageLanding, () => settingsCreateActions(startPageCreate, createSettingsPage))
 }
 
 export function createCategoriesPage(category, categoryIndex = undefined) {
-    createPage(() => createCategoriesPageLanding(category), () => categoryCreateActions(category, categoryIndex))
+    createPage(() => createCategoriesPageLanding(category), () => categoryCreateActions(startPageCreate, createCategoriesPage, createAuthorPage, createPicturesPage, category, categoryIndex))
 }
 
 export function createAuthorPage(imageNum, bullets = []) {
-    createPage(createChooseAuthorPageLanding, () => authorCategoryActions(imageNum, bullets = []))
+    createPage(createChooseAuthorPageLanding, () => authorCategoryActions(createCategoriesPage, createAuthorPage, imageNum, bullets = []))
 }
 
 export function createPicturesPage(imageNum, bullets = []) {
-    createPage(createChoosePicturesPageLanding, () => picturesCategoryActions(imageNum, bullets = []))
+    createPage(createChoosePicturesPageLanding, () => picturesCategoryActions(createCategoriesPage, createPicturesPage, imageNum, bullets = []))
 }
 
