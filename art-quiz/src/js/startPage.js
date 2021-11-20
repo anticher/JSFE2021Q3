@@ -11,7 +11,6 @@ export function createStartPageLanding() {
   }
   return (`
     <div class="start_page">
-    <iframe src="assets/sounds/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
     
   <div class="top">
       <div class="logo">
@@ -74,8 +73,6 @@ function loadImage(item, who) {
   }
   img.onload = () => {
     item.style.backgroundImage = `url(${img.src})`
-    // itemElement.style.backgroundSize = 'cover'
-    // itemElement.style.backgroundPosition = '50%'
   }
 }
 

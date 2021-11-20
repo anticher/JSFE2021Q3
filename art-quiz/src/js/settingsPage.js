@@ -2,11 +2,11 @@ import { Translation } from './translation'
 
 
 let MusicAudioElement = new Audio()
-MusicAudioElement.src = '../assets/sounds/River Flows In You.mp3'
+MusicAudioElement.src = 'assets/sounds/backMusic.mp3'
 MusicAudioElement.volume = +localStorage.getItem('musicVolume')
-MusicAudioElement.onended = function() {
+MusicAudioElement.onended = function () {
   MusicAudioElement.play()
-};
+}
 
 export function createSettingsPageLanding() {
   let lang = 'en'
@@ -95,7 +95,6 @@ export function createOrDeleteAudio() {
 
     MusicAudioElement.play()
   } else {
-    console.log(localStorage.getItem('isMusic'))
     MusicAudioElement.pause()
   }
 }
@@ -127,8 +126,8 @@ export function settingsDefaultsInit(how) {
     localStorage.setItem('timeSpeed', 30)
     createOrDeleteAudio()
     settingsCreateActions()
-    
-    
+
+
   }
 }
 

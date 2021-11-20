@@ -19,7 +19,7 @@ export function createChoosePicturesPageLanding() {
         <div class="pop_greetings"></div>
         <div class="pop_score"></div>
         </div>
-        <button class="pop_button button button_center">Next</button>
+        <button class="pop_button button button_center">${Translation[lang].Next}</button>
         </div> 
     <div class="top">
     <div class="back">
@@ -69,45 +69,7 @@ export function createChoosePicturesPageLanding() {
 
 export async function picturesCategoryActions(createCategoriesPage, createPicturesPage, imageNum, bullets = []) {
   return new Promise(async function (resolve, reject) {
-    ///// timer
-    if (state.intervalNumber === undefined) {
-      state.intervalNumber = 2
-    }
-    const timerElement = document.querySelector('.timer')
-    if (localStorage.getItem('timeGame') === 'true') {
-      timerElement.classList.remove('hidden')
-      timerElement.textContent = localStorage.getItem('timeSpeed')
-      timerElement.addEventListener('click', () => {
-        if (state.interval) {
-          if (state.intervalNumber > 0) {
-            clearInterval(state.interval)
-            state.interval = undefined
-            state.intervalNumber--
-            console.log(state.interval)
-            console.log(state.intervalNumber)
-          }
-          console.log(state.intervalNumber)
-        } else {
-          console.log('else')
-          state.interval = setInterval(() => {
-            timerElement.textContent--
-            if (timerElement.textContent == '0') {
-              showPopAnswer('incorrect')
-              clearInterval(state.interval)
-            }
-          }, 1000)
-        }
-      })
-      state.interval = setInterval(() => {
-        timerElement.textContent--
-        if (timerElement.textContent == '0') {
-          showPopAnswer('incorrect')
-          clearInterval(state.interval)
-          state.interval = undefined
-        }
-      }, 1000)
-    }
-    ///// timer
+
     state.questionIndex = imageNum
     const headerAuthorElement = document.querySelector('.header_author')
     const res = await getAnswerFromJson(imageNum)
@@ -116,9 +78,6 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
     const itemElements = document.querySelectorAll('.item')
     let array = [...itemElements]
     shuffleArray(array)
-    // array.forEach(element => {
-    //   setAnswer(createCategoriesPage, createPicturesPage, imageNum, element)
-    // })
     const backButton = document.querySelector('.back_button')
     backButton.addEventListener('click', () => {
       clearInterval(state.interval)
@@ -138,13 +97,11 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
     async function processArray(array) {
       for (const element of array) {
         let res = await setAnswer(createCategoriesPage, createPicturesPage, imageNum, element)
-        console.log(res)
         function setImage() {
           return new Promise(function (resolve, reject) {
-            const img = new Image();
+            const img = new Image()
             img.src = `assets/images/square/${res}.jpg`
             img.onload = () => {
-              console.log(img.src)
               element.style.backgroundImage = `url(${img.src})`
               element.style.backgroundSize = 'cover'
               element.style.backgroundPosition = '50%'
@@ -154,20 +111,55 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
         }
         await setImage()
 
-        
+
+      }
     }
-      console.log(state.answers)
-      console.log(state.answers.length)
-      console.log('Done!')
-    }
-    processArray(array).then(() => resolve())
+    processArray(array).then(() => {
+      ///// timer
+      if (state.intervalNumber === undefined) {
+        state.intervalNumber = 2
+      }
+      const timerElement = document.querySelector('.timer')
+      if (localStorage.getItem('timeGame') === 'true') {
+        timerElement.classList.remove('hidden')
+        timerElement.textContent = localStorage.getItem('timeSpeed')
+        timerElement.addEventListener('click', () => {
+          if (state.interval) {
+            if (state.intervalNumber > 0) {
+              clearInterval(state.interval)
+              state.interval = undefined
+              state.intervalNumber--
+
+            }
+          } else {
+            state.interval = setInterval(() => {
+              timerElement.textContent--
+              if (timerElement.textContent == '0') {
+                showPopAnswer('incorrect')
+                clearInterval(state.interval)
+              }
+            }, 1000)
+          }
+        })
+        state.interval = setInterval(() => {
+          timerElement.textContent--
+          if (timerElement.textContent == '0') {
+            showPopAnswer('incorrect')
+            clearInterval(state.interval)
+            state.interval = undefined
+          }
+        }, 1000)
+      }
+      ///// timer
+      resolve()
+    })
   })
 }
 
 async function getAnswerFromJson(number) {
   let request = `js/images.json`
   if (localStorage.getItem('lang') === 'ru') {
-    request = `js/imagesRU.json`
+    request = `js/imagesRu.json`
   }
   const res = await fetch(request)
   const data = await res.json()
@@ -185,17 +177,6 @@ async function setAnswer(createCategoriesPage, createPicturesPage, imageNum, ele
     return setAnswer(createCategoriesPage, createPicturesPage, getRandomAnswerNumber(), element)
   } else {
     state.answers.push(author)
-    // const img = new Image()
-    //     img.src = `../assets/images/square/${picture}.jpg`
-    //     img.onload = () => {
-    //         console.log(img.src)
-    //         element.style.backgroundImage = `url(${img.src})`
-    //         element.style.backgroundSize = 'cover'
-    //         element.style.backgroundPosition = '50%'
-    //     }
-    // element.style.background = `url(assets/images/square/${picture}.jpg)`
-    // element.style.backgroundSize = '100%'
-    // element.style.backgroundPosition = '50% 50%'
     element.dataset.author = author
     element.addEventListener('click', () => {
       if (element.dataset.author === state.answers[0]) {
@@ -203,12 +184,12 @@ async function setAnswer(createCategoriesPage, createPicturesPage, imageNum, ele
         setTimeout(() => {
           state.userAnswers.push(true)
           showPopAnswer(createCategoriesPage, createPicturesPage, 'correct')
-        }, 200)
+        }, 0)
       } else {
         setTimeout(() => {
           state.userAnswers.push(false)
           showPopAnswer(createCategoriesPage, createPicturesPage, 'incorrect')
-        }, 200)
+        }, 0)
         element.style.outline = '5px solid #ff0022'
       }
     })
@@ -229,12 +210,16 @@ function showPopRound(createCategoriesPage, number) {
     audio.play()
   }
   const popElement = document.querySelector('.pop')
+  let lang = 'en'
+  if (localStorage.getItem('lang') === 'ru') {
+    lang = 'ru'
+  }
   popElement.innerHTML = `
     <div class="pop_picture"></div>
         <div class="pop_greetings"></div>
         <div class="pop_score"></div>
         </div>
-        <button class="pop_button button button_center">Next</button>
+        <button class="pop_button button button_center">${Translation[lang].Next}</button>
         `
   const popPictureElement = document.querySelector('.pop_picture')
   popPictureElement.classList.add('pop_picture_round')
@@ -242,7 +227,11 @@ function showPopRound(createCategoriesPage, number) {
   popElement.classList.remove('incorrect')
   popElement.classList.remove('correct')
   const popGreetingsElement = document.querySelector('.pop_greetings')
-  popGreetingsElement.textContent = 'congratulations!'
+  if (localStorage.getItem('lang') === 'ru') {
+    popGreetingsElement.textContent = `${Translation.ru.Congratulations}!`
+  } else {
+    popGreetingsElement.textContent = `${Translation.en.Congratulations}!`
+  }
   const popScoreElement = document.querySelector('.pop_score')
   popScoreElement.textContent = `${number}/10`
   const popButton = document.querySelector('.pop_button')
@@ -272,7 +261,7 @@ function showPopAnswer(createCategoriesPage, createPicturesPage, result) {
   if (localStorage.getItem('isSound') === 'true') {
     audio.volume = localStorage.getItem('soundVolume')
     audio.play()
-    }
+  }
   const popAuthorElement = document.querySelector('.pop_author')
   popAuthorElement.textContent = state.pictureInfo[0].author
   const popNameElement = document.querySelector('.pop_name')

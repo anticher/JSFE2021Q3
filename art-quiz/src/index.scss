@@ -18,186 +18,161 @@ $grey: #555555;
 @import "./scss/categories-page.scss";
 @import "./scss/choose-author-page.scss";
 @import "./scss/choose-picture-page.scss";
-@import "./scss/scores-page.scss";
 @import "./scss/pop.scss";
 
 //global styles
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    font-family: "Prompt", sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: $main;
-    // background: $main4;
-    background: linear-gradient(0deg, rgba(40, 54, 85, 1) 0%, rgba(77, 100, 141, 1) 35%, rgba(208, 225, 249, 1) 100%);
-    background-size: cover;
-    overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $main;
+  background: linear-gradient(0deg, rgba(40, 54, 85, 1) 0%, rgba(77, 100, 141, 1) 35%, rgba(208, 225, 249, 1) 100%);
+  background-size: cover;
+  overflow: hidden;
 }
 
 .main {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    // background: rgba(255, 255, 255, 0.2);
-    // background-size: cover;
-    overflow-y: scroll;
-    transition: all 0.3s ease-out;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  transition: all 0.3s ease-out;
 }
 
-// .container {
-//     margin: 0 auto;
-//     width: 1000px;
-//     height: 100%;
-// }
-
 .font72 {
-    font-size: 72px;
-    line-height: 78px;
+  font-size: 72px;
+  line-height: 78px;
 }
 
 .font36 {
-    font-size: 36px;
-    line-height: 44px;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 .font30 {
-    font-size: 30px;
-    line-height: 37px;
+  font-size: 30px;
+  line-height: 37px;
 }
 
 .font24 {
-    font-size: 24px;
-    line-height: 29px;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .font18 {
-    font-size: 18px;
-    line-height: 22px;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .font14 {
-    font-size: 14px;
-    line-height: 17px;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .font700 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .button {
-    position: relative;
-    padding: 0 10px 0 50px;
-    width: 210px;
-    height: 70px;
-    font-size: 24px;
-    line-height: 29px;
-    // font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 10px;
-    background-color: $main4;
-    background-repeat: no-repeat;
-    background-position-x: 10px;
-    background-position-y: center;
-    background-size: 40px;
-    color: $main;
+  position: relative;
+  width: 210px;
+  height: 70px;
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: $main4;
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: center;
+  background-size: 40px;
+  color: $main;
 }
 
 .button_center {
-    padding: 0 5px;
+  padding: 0 5px;
 }
 
-//button
 .button_box {
-    width: 210px;
-    height: 70px;
+  width: 210px;
+  height: 70px;
 }
 
 .button:link,
 .button:visited {
-    transition: all 0.2;
-    position: absolute;
+  transition: all 0.2;
+  position: absolute;
 }
 
 .button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .button_white {
-    background-color: $main4;
-
+  background-color: $main4;
 }
 
 .button::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
 }
-
-.button_white::after {
-    background-color: $main4;
-}
-
-.button:hover::after {
-    transform: scaleX(1.4) scaleY(1.2);
-    opacity: 0;
-}
-
 
 @media (max-width: 768px) {
-    .button_box {
-        width: 139px;
-        height: 44px;
-    }
-    .button {
-        width: 139px;
-        height: 44px;
-        font-size: 18px;
-        line-height: 22px;
-        background-size: 35px;
-    }
+  .button_box {
+    width: 139px;
+    height: 44px;
+  }
+  .button {
+    width: 139px;
+    height: 44px;
+    font-size: 18px;
+    line-height: 22px;
+    background-size: 35px;
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .hiding {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .back_button {
-    padding: 0;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    background-image: url(assets/images/svg/cross.svg);
-    background-position: center;
-    background-size: 70%;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-image: url(assets/images/svg/cross.svg);
+  background-position: center;
+  background-size: 70%;
 }

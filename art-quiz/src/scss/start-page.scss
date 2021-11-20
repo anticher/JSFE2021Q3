@@ -1,188 +1,187 @@
 .start_page {
-    position: relative;
-    padding: 0 0 50px;
+  position: relative;
+  padding: 0 0 50px;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  .top {
     width: 100%;
-    min-height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    width: 20vmin;
+    height: 20vmin;
+    background-image: url(assets/images/svg/logo.svg);
+    background-size: 100% 100%;
+  }
+  .middle {
+    width: 100vmin;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+
+  .item {
+    width: 40vmin;
     display: flex;
     flex-direction: column;
+    gap: 15px;
+  }
+
+  .item_img {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    &.author {
+      background-image: url(assets/images/bg/shagal.jpg);
+    }
+    &.picture {
+      background-image: url(assets/images/bg/starry-night.jpg);
+    }
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+  }
+
+  .item_img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+
+  .item_img:active {
+    transform: translateY(5px);
+  }
+
+  .item_descr {
+    width: 100%;
+    text-align: right;
+    color: $main4;
+  }
+
+  .bottom {
+    position: relative;
+  }
+
+  .info {
+    padding: 5px 20px 10px;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    .top {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .logo {
-        width: 20vmin;
-        height: 20vmin;
-        background-image: url(assets/images/svg/logo.svg);
-        background-size: 100% 100%;
-    }
-    .middle {
-        width: 100vmin;
-        display: flex;
-        justify-content: space-evenly;
-        gap: 20px;
-    }
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .info-rsschool {
+    width: 60px;
+    height: 20px;
+    background: url("https://rs.school/images/rs_school_js.svg") center no-repeat;
+  }
 
-    .item {
-        width: 40vmin;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
+  .info-rsschool > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
 
-    .item_img {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        width: 100%;
-        height: 0;
-        padding-bottom: 100%;
-        &.author {
-            background-image: url(assets/images/bg/shagal.jpg);
-        }
-        &.picture {
-            background-image: url(assets/images/bg/starry-night.jpg);
-        }
-        background-position: center;
-        background-size: cover;
-        border-radius: 20px;
-    }
-
-    .item_img:hover {
-        transform: scale(1.01);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    }
-
-    .item_img:active {
-        transform: translateY(5px);
-    }
-
-    .item_descr {
-        width: 100%;
-        text-align: right;
-        color: $main4;
-    }
-
-    .bottom {
-        position: relative;
-    }
-
-    .info {
-        padding: 5px 20px 10px;
-        width: 100%;
-        height: 30px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.1)
-    }
-    .info-rsschool {
-        width: 60px;
-        height: 20px;
-        background: url("https://rs.school/images/rs_school_js.svg") center no-repeat;
-    }
-
-    .info-rsschool > a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-    }
-
-    .info-my_github > a {
-        text-decoration: none;
-        color: #000000;
-    }
+  .info-my_github > a {
+    text-decoration: none;
+    color: #000000;
+  }
 }
 
 @media (max-width: 1440px) {
-    .start_page {
-        .item {
-            width: 40%;
-        }
-        .item_img {
-            width: 100%;
-            height: 0;
-            padding-bottom: 100%;
-        }
+  .start_page {
+    .item {
+      width: 40%;
     }
+    .item_img {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
-    .start_page {
-        padding: 50px 0;
-    }
+  .start_page {
+    padding: 50px 0;
+  }
 }
 
 @media (max-width: 768px) {
-    .start_page {
-        .item_descr {
-            font-size: 30px;
-            line-height: 37px;
-        }
-        .info {
-            display: none;
-        }
+  .start_page {
+    .item_descr {
+      font-size: 30px;
+      line-height: 37px;
     }
+    .info {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 640px) {
-    .start_page {
-        .item_descr {
-            font-size: 24px;
-            line-height: 29px;
-        }
+  .start_page {
+    .item_descr {
+      font-size: 24px;
+      line-height: 29px;
     }
+  }
 }
 
 @media (max-width: 600px) {
-    .start_page {
-        padding: 20px 0 40px;
-        .logo {
-            width: 40%;
-            height: 0;
-            padding-bottom: 40%;
-        }
-        .middle {
-            padding: 20px 0;
-            flex: 1 1 90%;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-        .item {
-            align-items: center;
-            position: relative;
-            width: 100%;
-            gap: 5px;
-        }
-        .item_img {
-            width: 90%;
-            height: 0;
-            padding-bottom: 50%;
-        }
-        .item_descr {
-            position: absolute;
-            bottom: 10px;
-            right: 30px;
-            // transform: translateX(50%);
-            width: 80%;
-            color: $white;
-        }
+  .start_page {
+    padding: 20px 0 40px;
+    .logo {
+      width: 40%;
+      height: 0;
+      padding-bottom: 40%;
     }
+    .middle {
+      padding: 20px 0;
+      flex: 1 1 90%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .item {
+      align-items: center;
+      position: relative;
+      width: 100%;
+      gap: 5px;
+    }
+    .item_img {
+      width: 90%;
+      height: 0;
+      padding-bottom: 50%;
+    }
+    .item_descr {
+      position: absolute;
+      bottom: 10px;
+      right: 30px;
+      width: 80%;
+      color: $white;
+    }
+  }
 }
 
 @media (max-width: 420px) {
-    .start_page {
-        padding: 0 0 15px;
-        gap: 5px;
-        .middle {
-            padding: 10px 0;
-            gap: 10px;
-        }
+  .start_page {
+    padding: 0 0 15px;
+    gap: 5px;
+    .middle {
+      padding: 10px 0;
+      gap: 10px;
     }
+  }
 }
