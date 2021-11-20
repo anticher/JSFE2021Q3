@@ -142,7 +142,7 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
         function setImage() {
           return new Promise(function (resolve, reject) {
             const img = new Image();
-            img.src = `../assets/images/square/${res}.jpg`
+            img.src = `assets/images/square/${res}.jpg`
             img.onload = () => {
               console.log(img.src)
               element.style.backgroundImage = `url(${img.src})`

@@ -193,7 +193,7 @@ function categoryItemAddInner(createCategoriesPage, createAuthorPage, createPict
             `
         }
         const img = new Image()
-        img.src = `../assets/images/square/${imageNum}.jpg`
+        img.src = `assets/images/square/${imageNum}.jpg`
         img.onload = () => {
             console.log(img.src)
             item.style.backgroundImage = `url(${img.src})`
@@ -226,7 +226,7 @@ async function scoreItemAddInner(item, index, imageNum) {
     item.append(itemNumberElement)
     scoreItemAddPop(item, imageNum)
     const img = new Image()
-    img.src = `../assets/images/square/${imageNum}.jpg`
+    img.src = `assets/images/square/${imageNum}.jpg`
     img.onload = () => {
         console.log(img.src)
         item.style.backgroundImage = `url(${img.src})`

@@ -41,9 +41,7 @@ build/Release
 dist/
 node_modules/
 jspm_packages/
-jsconfig.json
-package-lock.json
-package.json
+
 webpack.config.js
 
 # TypeScript v1 declaration files

@@ -68,7 +68,7 @@ export async function authorCategoryActions(createCategoriesPage, createAuthorPa
     state.questionIndex = imageNum
     const itemElement = document.querySelector('.item')
     const img = new Image()
-        img.src = `../assets/images/square/${imageNum}.jpg`
+        img.src = `assets/images/square/${imageNum}.jpg`
         img.onload = () => {
             console.log(img.src)
             itemElement.style.backgroundImage = `url(${img.src})`
