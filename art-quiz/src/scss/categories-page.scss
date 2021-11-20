@@ -12,7 +12,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 3vmin;
+        gap: 6vmin;
     }
     .buttons_wrapper {
         width: 100%;
@@ -70,11 +70,20 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-image: url(assets/images/bg/shagal.jpg);
-        background-size: contain;
+        background-size: cover;
         border-radius: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
         overflow: hidden;
+    }
+
+    .item:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .item:active {
+        transform: translateY(5px);
+        
     }
     .item.grey {
         filter: grayscale(100%) brightness(60%);
@@ -113,6 +122,9 @@
         width: 100%;
         padding: 15px;
         height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-size: 36px;
         text-align: center;
         background-color: $main4;
@@ -200,12 +212,13 @@
             border-radius: 10px;
         }
         .items_wrapper {
-            padding: 5vw;
-            gap: 4vw;
+            width: 100%;
+            padding: 3vw;
+            gap: 3vw;
         }
         .item {
-            width: 33vw;
-            height: 33vw;
+            width: 40vw;
+            height: 40vw;
         }
         .item_pop {
             padding: 5px;

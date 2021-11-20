@@ -10,14 +10,8 @@ async function createPage(page, actions) {
     const preload = page()
     setTimeout(() => {
         mainElement.innerHTML = preload
-        const preloader = document.querySelector('.preloader')
-        preloader.classList.remove('hidden')
         const body = document.querySelector('body')
-        body.append(preloader)
         actions().then(() => {
-            console.log('opCreate')
-            console.log()
-            preloader.classList.add('hidden')
             mainElement.classList.remove('hiding')
         })
     }, 300)

@@ -49,15 +49,25 @@
         border-radius: 20px;
     }
 
+    .item_img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .item_img:active {
+        transform: translateY(5px);
+    }
+
     .item_descr {
         width: 100%;
         text-align: right;
         color: $main4;
     }
 
-    .settings_button {
-        background-image: url(assets/images/svg/settingsBtnLogo.svg);
+    .bottom {
+        position: relative;
     }
+
     .info {
         padding: 5px 20px 10px;
         width: 100%;

@@ -5,11 +5,11 @@ import { Translation } from './translation'
 
 
 export function createStartPageLanding() {
-    let lang = 'en'
+  let lang = 'en'
   if (localStorage.getItem('lang') === 'ru') {
     lang = 'ru'
   }
-    return (`
+  return (`
     <div class="start_page">
     <iframe src="assets/sounds/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
     
@@ -35,10 +35,11 @@ export function createStartPageLanding() {
       </div>
   </div>
   <div class="bottom">
-      <button class="settings_button button">
+    <div class="button_box">
+      <button class="settings_button button button_center button_white">
       ${Translation[lang].Settings}
       </button>
-      
+      </div>
   </div>
   <div class="info">
       <div class="info-rsschool"><a href="https://rs.school/js/"></a></div>
@@ -50,10 +51,31 @@ export function createStartPageLanding() {
 }
 
 export async function startCreateActions() {
+  return new Promise(function (resolve, reject) {
     const setingsButton = document.querySelector('.settings_button')
     setingsButton.addEventListener('click', () => createSettingsPage())
     const authorButton = document.querySelector('.item_img.author')
     authorButton.addEventListener('click', () => createCategoriesPage('author'))
+    loadImage(authorButton, 'author')
     const pictureButton = document.querySelector('.item_img.picture')
     pictureButton.addEventListener('click', () => createCategoriesPage('pictures'))
+    loadImage(pictureButton, 'pictures')
+    resolve()
+  })
 }
+
+
+function loadImage(item, who) {
+  const img = new Image()
+  if (who === 'author') {
+    img.src = `assets/images/bg/shagal.jpg`
+  } else if (who === 'pictures') {
+    img.src = `assets/images/bg/starry-night.jpg`
+  }
+  img.onload = () => {
+    item.style.backgroundImage = `url(${img.src})`
+    // itemElement.style.backgroundSize = 'cover'
+    // itemElement.style.backgroundPosition = '50%'
+  }
+}
+

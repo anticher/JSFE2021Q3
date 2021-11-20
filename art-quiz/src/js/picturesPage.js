@@ -222,6 +222,12 @@ async function setAnswer(createCategoriesPage, createPicturesPage, imageNum, ele
 
 
 function showPopRound(createCategoriesPage, number) {
+  if (localStorage.getItem('isSound') === 'true') {
+    const audio = new Audio()
+    audio.src = '../assets/sounds/click.mp3'
+    audio.volume = localStorage.getItem('soundVolume')
+    audio.play()
+  }
   const popElement = document.querySelector('.pop')
   popElement.innerHTML = `
     <div class="pop_picture"></div>
@@ -250,16 +256,23 @@ function showPopAnswer(createCategoriesPage, createPicturesPage, result) {
     clearInterval(state.interval)
     state.interval = undefined
   }
+  const audio = new Audio()
   const buttons = document.querySelectorAll('.bottom_item')
   buttons.forEach(element => element.disabled = true)
   const popElement = document.querySelector('.pop')
   popElement.classList.remove('hidden')
   popElement.classList.remove('hiding')
   if (result === 'correct') {
+    audio.src = '../assets/sounds/correct.mp3'
     popElement.classList.add('correct')
   } else {
+    audio.src = '../assets/sounds/incorrect.mp3'
     popElement.classList.add('incorrect')
   }
+  if (localStorage.getItem('isSound') === 'true') {
+    audio.volume = localStorage.getItem('soundVolume')
+    audio.play()
+    }
   const popAuthorElement = document.querySelector('.pop_author')
   popAuthorElement.textContent = state.pictureInfo[0].author
   const popNameElement = document.querySelector('.pop_name')

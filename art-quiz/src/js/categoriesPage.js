@@ -263,7 +263,10 @@ async function scoreItemAddPop(item, imageNum) {
 
 
 async function getAnswerFromJson(number) {
-    const request = 'js/images.json'
+    let request = 'js/images.json'
+    if (localStorage.getItem('lang') === 'ru') {
+        request = 'js/imagesRu.json'
+    }
     const res = await fetch(request)
     const data = await res.json()
     return data[number]

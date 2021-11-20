@@ -98,7 +98,8 @@ button:hover {
 }
 
 .button {
-    padding-left: 40px;
+    position: relative;
+    padding: 0 10px 0 50px;
     width: 210px;
     height: 70px;
     font-size: 24px;
@@ -110,14 +111,68 @@ button:hover {
     background-repeat: no-repeat;
     background-position-x: 10px;
     background-position-y: center;
+    background-size: 40px;
     color: $main;
 }
 
 .button_center {
-    padding-left: 0;
+    padding: 0 5px;
 }
 
+//button
+.button_box {
+    width: 210px;
+    height: 70px;
+}
+
+.button:link,
+.button:visited {
+    transition: all 0.2;
+    position: absolute;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button_white {
+    background-color: $main4;
+
+}
+
+.button::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.button_white::after {
+    background-color: $main4;
+}
+
+.button:hover::after {
+    transform: scaleX(1.4) scaleY(1.2);
+    opacity: 0;
+}
+
+
 @media (max-width: 768px) {
+    .button_box {
+        width: 139px;
+        height: 44px;
+    }
     .button {
         width: 139px;
         height: 44px;
@@ -137,152 +192,12 @@ button:hover {
 }
 
 .back_button {
+    padding: 0;
     position: relative;
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    &::before {
-        width: 100%;
-        height: 10%;
-        position: absolute;
-        left: 0;
-        top: 46%;
-        transform: rotate(45deg);
-        background-color: #000000;
-        content: "";
-    }
-    &::after {
-        width: 100%;
-        height: 10%;
-        position: absolute;
-        left: 0;
-        top: 46%;
-        transform: rotate(-45deg);
-        background-color: #000000;
-        content: "";
-    }
-}
-
-.preloader {
-    width: 100vw;
-    height: 100vh;
-    background: #282828;
-    svg {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(1);
-        transform: translate(-50%, -50%) rotate(45deg) scale(1);
-    }
-
-    .stroke-still {
-        stroke: #232323;
-    }
-
-    .stroke-animation {
-        -webkit-animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
-        animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-        -webkit-animation-delay: 0;
-        animation-delay: 0;
-        -webkit-animation-direction: normal;
-        animation-direction: normal;
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-        -webkit-animation-play-state: running;
-        animation-play-state: running;
-        -webkit-transform-origin: center center;
-        transform-origin: center center;
-    }
-
-    @-webkit-keyframes stroke-spacing {
-        0% {
-            stroke-dasharray: 0 200;
-        }
-        45% {
-            stroke-dashoffset: 0;
-            stroke-dasharray: 200 200;
-        }
-        90% {
-            stroke-dashoffset: -200;
-            stroke-dasharray: 200 200;
-        }
-        100% {
-            stroke-dashoffset: -200;
-            stroke-dasharray: 200 200;
-        }
-    }
-
-    @keyframes stroke-spacing {
-        0% {
-            stroke-dasharray: 0 200;
-        }
-        45% {
-            stroke-dashoffset: 0;
-            stroke-dasharray: 200 200;
-        }
-        90% {
-            stroke-dashoffset: -200;
-            stroke-dasharray: 200 200;
-        }
-        100% {
-            stroke-dashoffset: -200;
-            stroke-dasharray: 200 200;
-        }
-    }
-
-    @-webkit-keyframes stroke-color {
-        0% {
-            stroke: #3498db;
-        }
-        24% {
-            stroke: #643232;
-        }
-        25% {
-            stroke: #327864;
-        }
-        49% {
-            stroke: #327864;
-        }
-        50% {
-            stroke: #32326e;
-        }
-        74% {
-            stroke: #32326e;
-        }
-        75% {
-            stroke: #78325a;
-        }
-        99% {
-            stroke: #78325a;
-        }
-    }
-
-    @keyframes stroke-color {
-        0% {
-            stroke: #3498db;
-        }
-        24% {
-            stroke: #643232;
-        }
-        25% {
-            stroke: #327864;
-        }
-        49% {
-            stroke: #327864;
-        }
-        50% {
-            stroke: #32326e;
-        }
-        74% {
-            stroke: #32326e;
-        }
-        75% {
-            stroke: #78325a;
-        }
-        99% {
-            stroke: #78325a;
-        }
-    }
+    background-image: url(assets/images/svg/cross.svg);
+    background-position: center;
+    background-size: 70%;
 }

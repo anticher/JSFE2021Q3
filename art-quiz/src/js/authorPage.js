@@ -19,16 +19,16 @@ export function createChooseAuthorPageLanding() {
     <div class="pop_greetings"></div>
     <div class="pop_score"></div>
     </div>
-    <button class="pop_button button button_center">Next</button>
+    <button class="pop_button button button_center">${Translation[lang].Next}</button>
     </div> 
       <div class="top">
           <div class="back">
-              <button class="back_button button"></button>
+              <button class="back_button button button_white"></button>
           </div>
           <div class="header font30 font700">
           ${Translation[lang]['Who is the author of this picture?']}
           </div>
-          <button class="timer button hidden">
+          <button class="timer button  button  button_white hidden">
           </button>
       </div>
       <div class="middle">
@@ -116,7 +116,7 @@ export async function authorCategoryActions(createCategoriesPage, createAuthorPa
       state.interval = setInterval(() => {
         timerElement.textContent--
         if (timerElement.textContent == '0') {
-          showPopAnswer('incorrect')
+          showPopAnswer(createCategoriesPage, createAuthorPage, 'incorrect')
           clearInterval(state.interval)
           state.interval = undefined
         }

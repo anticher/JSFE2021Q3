@@ -13,13 +13,14 @@ export const Translation = {
         'Scores': 'Scores',
         'Who is the author of this picture?': 'Who is the author of this picture?',
         'What picture was painted by': 'what picture was painted by',
+        'Next': 'Next'
     },
     'ru': {
         'Painter quiz': 'Угадай художника',
         'Picture quiz': 'Угадай картину',
         'Settings': 'Настройки',
         'Back': 'Назад',
-        'Defaults': 'Стандартные',
+        'Defaults': 'Стандарт',
         'Change language': 'Поменять язык',
         'Sounds volume': 'Громкость звуков',
         'Music volume': 'Громкость музыки',
@@ -28,5 +29,6 @@ export const Translation = {
         'Scores': 'Результаты',
         'Who is the author of this picture?': 'Кто автор этой картины?',
         'What picture was painted by': 'Какую картину написал',
+        'Next': 'Следующий'
     }
 }

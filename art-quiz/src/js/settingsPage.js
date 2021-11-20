@@ -1,6 +1,12 @@
 import { Translation } from './translation'
 
+
 let MusicAudioElement = new Audio()
+MusicAudioElement.src = '../assets/sounds/River Flows In You.mp3'
+MusicAudioElement.volume = +localStorage.getItem('musicVolume')
+MusicAudioElement.onended = function() {
+  MusicAudioElement.play()
+};
 
 export function createSettingsPageLanding() {
   let lang = 'en'
@@ -68,12 +74,16 @@ export function createSettingsPageLanding() {
         </div>
     </div>
     <div class="bottom">
-        <button class="save_button button button_center">
+    <div class="button_box">
+        <button class="save_button button button_center button_white">
             ${Translation[lang].Back}
         </button>
-        <button class="defaults_button button button_center">
+        </div>
+        <div class="button_box">
+        <button class="defaults_button button button_center button_white">
             ${Translation[lang].Defaults}
         </button>
+        </div>
     </div>
 </div>
       `
@@ -82,12 +92,10 @@ export function createSettingsPageLanding() {
 
 export function createOrDeleteAudio() {
   if (localStorage.getItem('isMusic') === 'true') {
-    MusicAudioElement = new Audio()
-    MusicAudioElement.src = '../assets/sounds/River Flows In You.mp3'
-    MusicAudioElement.currentTime = 0
-    MusicAudioElement.volume = +localStorage.getItem('musicVolume')
+
     MusicAudioElement.play()
   } else {
+    console.log(localStorage.getItem('isMusic'))
     MusicAudioElement.pause()
   }
 }
@@ -99,7 +107,7 @@ export function settingsDefaultsInit(how) {
       localStorage.setItem('soundVolume', 0.5)
     }
     if (!localStorage.getItem('isMusic')) {
-      localStorage.setItem('isMusic', true)
+      localStorage.setItem('isMusic', false)
       localStorage.setItem('musicVolume', 0.5)
     }
     if (!localStorage.getItem('timeGame')) {
@@ -113,12 +121,14 @@ export function settingsDefaultsInit(how) {
     localStorage.setItem('lang', 'en')
     localStorage.setItem('isSound', true)
     localStorage.setItem('soundVolume', 0.5)
-    localStorage.setItem('isMusic', true)
+    localStorage.setItem('isMusic', false)
     localStorage.setItem('musicVolume', 0.5)
     localStorage.setItem('timeGame', true)
     localStorage.setItem('timeSpeed', 30)
-    settingsCreateActions()
     createOrDeleteAudio()
+    settingsCreateActions()
+    
+    
   }
 }
 
@@ -127,6 +137,9 @@ export async function settingsCreateActions(startPageCreate, createSettingsPage)
   const saveButton = document.querySelector('.save_button')
   DefaultsButton.addEventListener('click', () => {
     settingsDefaultsInit()
+    startPageCreate()
+    DefaultsButton.disabled = true
+    setTimeout(() => DefaultsButton.disabled = false, 1000)
   })
   saveButton.addEventListener('click', () => {
     startPageCreate()

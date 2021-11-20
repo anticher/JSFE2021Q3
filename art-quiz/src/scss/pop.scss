@@ -1,11 +1,11 @@
 .pop {
     padding: 10px;
     position: absolute;
-    width: 70vmin;
-    height: 70vmin;
+    width: 100vmin;
+    height: 100vmin;
     left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, 50%);
+    bottom: -20px;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -15,6 +15,9 @@
     border-top-right-radius: 20px;
     z-index: 50;
     transition: all 0.3s ease;
+}
+.pop_author {
+    font-weight: bold;
 }
 .pop_picture {
     width: 60vmin;
