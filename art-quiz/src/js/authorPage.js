@@ -212,7 +212,7 @@ async function getAnswerFromJson(number) {
 function showPopRound(createCategoriesPage, number) {
   if (localStorage.getItem('isSound') === 'true') {
     const audio = new Audio()
-    audio.src = '../assets/sounds/click.mp3'
+    audio.src = 'assets/sounds/click.mp3'
     audio.volume = localStorage.getItem('soundVolume')
     audio.play()
   }
@@ -252,11 +252,11 @@ function showPopAnswer(createCategoriesPage, createAuthorPage, result) {
   popElement.classList.remove('hidden')
   popElement.classList.remove('hiding')
   if (result === 'correct') {
-    audio.src = '../assets/sounds/correct.mp3'
+    audio.src = 'assets/sounds/correct.mp3'
     
     popElement.classList.add('correct')
   } else {
-    audio.src = '../assets/sounds/incorrect.mp3'
+    audio.src = 'assets/sounds/incorrect.mp3'
     popElement.classList.add('incorrect')
   }
   if (localStorage.getItem('isSound') === 'true') {
