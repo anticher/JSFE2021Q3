@@ -279,7 +279,7 @@ function onSoundVolumeChanged() {
   const volume = value / 100
   localStorage.setItem('soundVolume', volume)
   const audio = new Audio()
-  audio.src = '../assets/sounds/click.mp3'
+  audio.src = 'assets/sounds/click.mp3'
   audio.volume = localStorage.getItem('soundVolume')
   audio.play()
 }

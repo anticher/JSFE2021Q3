@@ -66,6 +66,12 @@ export function createChooseAuthorPageLanding() {
 export async function authorCategoryActions(createCategoriesPage, createAuthorPage, imageNum, bullets = []) {
   return new Promise(function (resolve, reject) {
     state.questionIndex = imageNum
+    const audioCorrect = new Audio()
+    const audioIncorrect = new Audio()
+    audioCorrect.src = 'assets/sounds/correct.mp3'
+    audioIncorrect.src = 'assets/sounds/incorrect.mp3'
+    audioCorrect.volume = localStorage.getItem('soundVolume')
+    audioIncorrect.volume = localStorage.getItem('soundVolume')
     const itemElement = document.querySelector('.item')
     const img = new Image()
     img.src = `assets/images/square/${imageNum}.jpg`
@@ -98,7 +104,7 @@ export async function authorCategoryActions(createCategoriesPage, createAuthorPa
     state.answers = []
     async function processArray(array) {
       for (const element of array) {
-        const res = await setAnswer(createCategoriesPage, createAuthorPage, imageNum, element)
+        const res = await setAnswer(createCategoriesPage, createAuthorPage, imageNum, element, audioCorrect, audioIncorrect)
         function setAuthor() {
           return new Promise(function (resolve, reject) {
             element.textContent = res
@@ -128,7 +134,7 @@ export async function authorCategoryActions(createCategoriesPage, createAuthorPa
             state.interval = setInterval(() => {
               timerElement.textContent--
               if (timerElement.textContent == '0') {
-                showPopAnswer('incorrect')
+                showPopAnswer(createCategoriesPage, createAuthorPage, 'incorrect')
                 clearInterval(state.interval)
               }
             }, 1000)
@@ -151,13 +157,13 @@ export async function authorCategoryActions(createCategoriesPage, createAuthorPa
 
 
 
-async function setAnswer(createCategoriesPage, createAuthorPage, imageNum, element) {
+async function setAnswer(createCategoriesPage, createAuthorPage, imageNum, element, audioCorrect, audioIncorrect) {
   const el = element
   const res = await getAnswerFromJson(imageNum)
   const author = res.author
   state.pictureInfo.push(res)
   if (state.answers.indexOf(author) > -1) {
-    return setAnswer(createCategoriesPage, createAuthorPage, getRandomAnswerNumber(), element)
+    return setAnswer(createCategoriesPage, createAuthorPage, getRandomAnswerNumber(), element, audioCorrect, audioIncorrect)
   } else {
     state.answers.push(author)
     el.addEventListener('click', () => {
@@ -166,20 +172,21 @@ async function setAnswer(createCategoriesPage, createAuthorPage, imageNum, eleme
         const el = element
         el.disabled = true
       })
+
       if (element.textContent === state.answers[0]) {
 
         el.style.background = '#88ff00'
-        setTimeout(() => {
-          state.userAnswers.push(true)
-          showPopAnswer(createCategoriesPage, createAuthorPage, 'correct')
-        }, 0)
+
+        state.userAnswers.push(true)
+        audioCorrect.play()
+        showPopAnswer(createCategoriesPage, createAuthorPage, 'correct')
       } else {
 
         el.style.background = '#ff0022'
-        setTimeout(() => {
-          state.userAnswers.push(false)
-          showPopAnswer(createCategoriesPage, createAuthorPage, 'incorrect')
-        }, 0)
+
+        state.userAnswers.push(false)
+        audioIncorrect.play()
+        showPopAnswer(createCategoriesPage, createAuthorPage, 'incorrect')
       }
     })
     return author
@@ -243,21 +250,21 @@ function showPopAnswer(createCategoriesPage, createAuthorPage, result) {
     clearInterval(state.interval)
     state.interval = undefined
   }
-  const audio = new Audio()
+
   const popElement = document.querySelector('.pop')
   popElement.classList.remove('hidden')
   popElement.classList.remove('hiding')
   if (result === 'correct') {
-    audio.src = 'assets/sounds/correct.mp3'
+
 
     popElement.classList.add('correct')
   } else {
-    audio.src = 'assets/sounds/incorrect.mp3'
+
     popElement.classList.add('incorrect')
   }
   if (localStorage.getItem('isSound') === 'true') {
-    audio.volume = localStorage.getItem('soundVolume')
-    audio.play()
+
+
   }
   const popAuthorElement = document.querySelector('.pop_author')
   popAuthorElement.textContent = state.pictureInfo[0].author
@@ -271,7 +278,11 @@ function showPopAnswer(createCategoriesPage, createAuthorPage, result) {
   if ((state.questionIndex + 1) % 10 === 0) {
     state.categoriesScoreNumber = state.userAnswers.filter((answer) => answer === true).length
     localStorage.setItem(state.questionIndex - 9, state.userAnswers.join(','))
-    popButton.addEventListener('click', () => showPopRound(createCategoriesPage, state.categoriesScoreNumber))
+    popButton.addEventListener('click', () => {
+      setTimeout(() => {
+        showPopRound(createCategoriesPage, state.categoriesScoreNumber)
+      })
+    })
   } else {
     popButton.addEventListener('click', () => createAuthorPage(state.questionIndex + 1, state.userAnswers))
   }

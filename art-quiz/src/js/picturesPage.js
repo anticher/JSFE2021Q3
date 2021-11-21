@@ -75,6 +75,12 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
     const res = await getAnswerFromJson(imageNum)
     headerAuthorElement.textContent = res.author
     state.answers = []
+    const audioCorrect = new Audio()
+    const audioIncorrect = new Audio()
+    audioCorrect.src = 'assets/sounds/correct.mp3'
+    audioIncorrect.src = 'assets/sounds/incorrect.mp3'
+    audioCorrect.volume = localStorage.getItem('soundVolume')
+    audioIncorrect.volume = localStorage.getItem('soundVolume')
     const itemElements = document.querySelectorAll('.item')
     let array = [...itemElements]
     shuffleArray(array)
@@ -96,7 +102,7 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
     })
     async function processArray(array) {
       for (const element of array) {
-        let res = await setAnswer(createCategoriesPage, createPicturesPage, imageNum, element)
+        let res = await setAnswer(createCategoriesPage, createPicturesPage, imageNum, element, audioCorrect, audioIncorrect)
         function setImage() {
           return new Promise(function (resolve, reject) {
             const img = new Image()
@@ -167,29 +173,27 @@ async function getAnswerFromJson(number) {
 }
 
 
-async function setAnswer(createCategoriesPage, createPicturesPage, imageNum, element) {
+async function setAnswer(createCategoriesPage, createPicturesPage, imageNum, element, audioCorrect, audioIncorrect) {
   const res = await getAnswerFromJson(imageNum)
   let picture = res.imageNum
   let author = res.author
   state.pictureInfo.push(res)
   if (state.answers.indexOf(author) > -1) {
 
-    return setAnswer(createCategoriesPage, createPicturesPage, getRandomAnswerNumber(), element)
+    return setAnswer(createCategoriesPage, createPicturesPage, getRandomAnswerNumber(), element, audioCorrect, audioIncorrect)
   } else {
     state.answers.push(author)
     element.dataset.author = author
     element.addEventListener('click', () => {
       if (element.dataset.author === state.answers[0]) {
         element.style.outline = '5px solid #88ff00'
-        setTimeout(() => {
-          state.userAnswers.push(true)
-          showPopAnswer(createCategoriesPage, createPicturesPage, 'correct')
-        }, 0)
+        state.userAnswers.push(true)
+        audioCorrect.play()
+        showPopAnswer(createCategoriesPage, createPicturesPage, 'correct')
       } else {
-        setTimeout(() => {
-          state.userAnswers.push(false)
-          showPopAnswer(createCategoriesPage, createPicturesPage, 'incorrect')
-        }, 0)
+        state.userAnswers.push(false)
+        audioIncorrect.play()
+        showPopAnswer(createCategoriesPage, createPicturesPage, 'incorrect')
         element.style.outline = '5px solid #ff0022'
       }
     })
@@ -245,22 +249,17 @@ function showPopAnswer(createCategoriesPage, createPicturesPage, result) {
     clearInterval(state.interval)
     state.interval = undefined
   }
-  const audio = new Audio()
   const buttons = document.querySelectorAll('.bottom_item')
   buttons.forEach(element => element.disabled = true)
   const popElement = document.querySelector('.pop')
   popElement.classList.remove('hidden')
   popElement.classList.remove('hiding')
   if (result === 'correct') {
-    audio.src = 'assets/sounds/correct.mp3'
     popElement.classList.add('correct')
   } else {
-    audio.src = 'assets/sounds/incorrect.mp3'
     popElement.classList.add('incorrect')
   }
   if (localStorage.getItem('isSound') === 'true') {
-    audio.volume = localStorage.getItem('soundVolume')
-    audio.play()
   }
   const popAuthorElement = document.querySelector('.pop_author')
   popAuthorElement.textContent = state.pictureInfo[0].author
