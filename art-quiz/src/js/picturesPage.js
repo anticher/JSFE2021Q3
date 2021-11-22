@@ -226,6 +226,7 @@ function showPopRound(createCategoriesPage, number) {
         <button class="pop_button button button_center">${Translation[lang].Next}</button>
         `
   const popPictureElement = document.querySelector('.pop_picture')
+  popElement.classList.remove('hiding')
   popPictureElement.classList.add('pop_picture_round')
   popPictureElement.style.backgroundImage = `url(assets/images/svg/roundEnd.svg`
   popElement.classList.remove('incorrect')
@@ -273,7 +274,15 @@ function showPopAnswer(createCategoriesPage, createPicturesPage, result) {
   if ((state.questionIndex + 1) % 10 == 0) {
     state.categoriesScoreNumber = state.userAnswers.filter(answer => answer === true).length
     localStorage.setItem(state.questionIndex - 9, state.userAnswers.join(','))
-    popButton.addEventListener('click', () => showPopRound(createCategoriesPage, state.categoriesScoreNumber))
+    popButton.addEventListener('click', () => {
+
+      popElement.classList.add('hiding')
+      setTimeout(() => {
+
+        showPopRound(createCategoriesPage, state.categoriesScoreNumber)
+      }, 300)
+
+    })
   } else {
     popButton.addEventListener('click', () => createPicturesPage(state.questionIndex + 1, state.userAnswers))
   }

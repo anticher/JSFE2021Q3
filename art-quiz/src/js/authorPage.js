@@ -206,6 +206,7 @@ async function getAnswerFromJson(number) {
 }
 
 function showPopRound(createCategoriesPage, number) {
+
   if (localStorage.getItem('isSound') === 'true') {
     const audio = new Audio()
     audio.src = 'assets/sounds/click.mp3'
@@ -213,6 +214,7 @@ function showPopRound(createCategoriesPage, number) {
     audio.play()
   }
   const popElement = document.querySelector('.pop')
+  popElement.classList.remove('hiding')
   let lang = 'en'
   if (localStorage.getItem('lang') === 'ru') {
     lang = 'ru'
@@ -279,9 +281,11 @@ function showPopAnswer(createCategoriesPage, createAuthorPage, result) {
     state.categoriesScoreNumber = state.userAnswers.filter((answer) => answer === true).length
     localStorage.setItem(state.questionIndex - 9, state.userAnswers.join(','))
     popButton.addEventListener('click', () => {
+      popElement.classList.add('hiding')
       setTimeout(() => {
+
         showPopRound(createCategoriesPage, state.categoriesScoreNumber)
-      })
+      }, 300)
     })
   } else {
     popButton.addEventListener('click', () => createAuthorPage(state.questionIndex + 1, state.userAnswers))
