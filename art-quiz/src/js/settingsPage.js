@@ -228,7 +228,7 @@ function createSoundMusicTimeBarActions(musicBarElement, soundBarElement, timeBa
   soundBarElement.value = +localStorage.getItem('soundVolume') * 100
   soundBarElement.addEventListener('change', onSoundVolumeChanged)
 
-  timeBarElement.value = +localStorage.getItem('timeSpeed') * 100
+  timeBarElement.value = +localStorage.getItem('timeSpeed')
   timeBarElement.addEventListener('change', onTimeSpeedChanged)
 }
 

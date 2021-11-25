@@ -141,7 +141,7 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
             state.interval = setInterval(() => {
               timerElement.textContent--
               if (timerElement.textContent == '0') {
-                showPopAnswer('incorrect')
+                showPopAnswer(createCategoriesPage, createPicturesPage, 'incorrect')
                 clearInterval(state.interval)
               }
             }, 1000)
@@ -150,7 +150,7 @@ export async function picturesCategoryActions(createCategoriesPage, createPictur
         state.interval = setInterval(() => {
           timerElement.textContent--
           if (timerElement.textContent == '0') {
-            showPopAnswer('incorrect')
+            showPopAnswer(createCategoriesPage, createPicturesPage, 'incorrect')
             clearInterval(state.interval)
             state.interval = undefined
           }
